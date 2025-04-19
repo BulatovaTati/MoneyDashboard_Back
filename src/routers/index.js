@@ -7,10 +7,14 @@ import categoriesRouter from './categories.js';
 
 const router = Router();
 
-router.use('/transactions', transactionsRouter);
+//moneydashboard-back.onrender.com/api/auth/
 router.use('/auth', authRouter);
+//moneydashboard-back.onrender.com/api/transactions/
+router.use('/transactions', transactionsRouter);
 router.use('/users', usersRouter);
-router.use('/transactions-summary', summaryRouter);
+//moneydashboard-back.onrender.com/api/transaction-categories
 router.use('/transaction-categories', categoriesRouter);
+//moneydashboard-back.onrender.com/api/transactions-summary
+router.use('/transactions-summary', summaryRouter);
 
 export default router;
