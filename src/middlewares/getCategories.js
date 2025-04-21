@@ -1,15 +1,12 @@
-import fs from 'fs/promises';
-import path from 'path';
+export const validateCategoryType = (req, res, next) => {
+  const { type } = req.query;
 
-const categoriesFilePath = path.join(__dirname, '..', 'categoriesList.json');
-
-export const getCategories = async () => {
-  try {
-    const data = await fs.readFile(categoriesFilePath, 'utf8');
-    const categories = JSON.parse(data);
-    return categories;
-  } catch (error) {
-    console.error('Failed to read categories:', error);
-    throw error;
+  if (!['income', 'expense'].includes(type)) {
+    return res
+      .status(400)
+      .json({ error: 'Invalid category type. Use ?type=income or ?type=expense' });
   }
+
+  next();
 };
+

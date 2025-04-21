@@ -10,6 +10,8 @@ import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { swaggerDocs } from './middlewares/swaggerDocs.js';
 
+import categoriesRouter from './routers/categories.js';
+
 const PORT = Number(getEnvVar('PORT', '8080'));
 
 export const setupServer = async () => {
@@ -44,3 +46,4 @@ export const setupServer = async () => {
     console.log(`Server is running on port ${PORT}`);
   });
 };
+
