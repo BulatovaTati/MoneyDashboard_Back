@@ -1,8 +1,5 @@
-import jwt from 'jsonwebtoken';
 import createHttpError from 'http-errors';
-import { getEnvVar } from '../utils/getEnvVar.js';
-
-const JWT_SECRET = getEnvVar('JWT_SECRET');
+import { verifyAccessToken } from '../utils/token.js';
 
 export const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -16,7 +13,8 @@ export const authMiddleware = (req, res, next) => {
   const token = authHeader.split(' ')[1];
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = verifyAccessToken(token);
+
     req.userId = decoded.userId;
     next();
   } catch (err) {

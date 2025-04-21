@@ -7,7 +7,10 @@ export const registerUserController = async (req, res) => {
     res.status(201).json({
       status: 201,
       message: 'Successfully registered a user!',
-      data: user,
+      data: {
+        user: user.user,
+        token: user.token,
+      },
     });
   } catch (err) {
     res.status(500).json({
@@ -26,8 +29,8 @@ export const loginUserController = async (req, res) => {
       status: 200,
       message: 'Successfully logged in!',
       data: {
-        accessToken: session.accessToken,
-        refreshToken: session.refreshToken,
+        user: session.user,
+        token: session.token,
       },
     });
   } catch (err) {
@@ -41,7 +44,7 @@ export const loginUserController = async (req, res) => {
 
 export const logoutUserController = async (req, res) => {
   try {
-    res.status(204).send();
+    return res.status(200).json({ message: 'Successfully logged out' });
   } catch (err) {
     res.status(500).json({
       status: 500,

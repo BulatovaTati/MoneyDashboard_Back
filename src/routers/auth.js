@@ -24,7 +24,7 @@ AuthRouter.post(
   ctrlWrapper(loginUserController),
 );
 
-// DELETE /auth/sign-out - вихід користувача
-AuthRouter.delete('/sign-out', ctrlWrapper(logoutUserController)); // Визов методу в контролері
+// POST /auth/sign-out - вихід користувача
+AuthRouter.post('/sign-out', ctrlWrapper(logoutUserController)); // Визов методу в контролері
 
 export default AuthRouter;
