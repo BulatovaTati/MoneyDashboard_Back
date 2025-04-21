@@ -2,8 +2,7 @@ import jwt from 'jsonwebtoken';
 import { getEnvVar } from './getEnvVar.js';
 
 const JWT_SECRET = getEnvVar('JWT_SECRET');
-const ACCESS_TOKEN_EXPIRES_IN = '1h';
-const REFRESH_TOKEN_EXPIRES_IN = '7d';
+const ACCESS_TOKEN_EXPIRES_IN = '1m';
 
 export const generateAccessToken = (userId) => {
   return jwt.sign({ userId }, JWT_SECRET, {
@@ -11,12 +10,6 @@ export const generateAccessToken = (userId) => {
   });
 };
 
-export const generateRefreshToken = (userId) => {
-  return jwt.sign({ userId }, JWT_SECRET, {
-    expiresIn: REFRESH_TOKEN_EXPIRES_IN,
-  });
-};
-
-export const verifyToken = (token) => {
+export const verifyAccessToken = (token) => {
   return jwt.verify(token, JWT_SECRET);
 };

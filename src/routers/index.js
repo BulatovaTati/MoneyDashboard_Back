@@ -11,6 +11,7 @@ const router = Router();
 router.use('/auth', authRouter);
 //moneydashboard-back.onrender.com/api/transactions/
 router.use('/transactions', transactionsRouter);
+//moneydashboard-back.onrender.com/api/users/
 router.use('/users', usersRouter);
 //moneydashboard-back.onrender.com/api/transaction-categories
 router.use('/transaction-categories', categoriesRouter);

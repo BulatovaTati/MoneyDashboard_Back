@@ -2,13 +2,11 @@ import { Router } from 'express';
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import { loginUserSchema, registerUserSchema } from '../validation/auth.js';
 import {
-  getCurrentUserController,
   loginUserController,
   logoutUserController,
   registerUserController,
 } from '../controllers/auth.js';
 import { validateBody } from '../middlewares/validateBody.js';
-import { authMiddleware } from '../middlewares/authMiddleware.js';
 
 const AuthRouter = Router();
 //moneydashboard-back.onrender.com/api/auth/sign-up
@@ -26,13 +24,7 @@ AuthRouter.post(
   ctrlWrapper(loginUserController),
 );
 
-// DELETE /auth/sign-out - вихід користувача
-AuthRouter.delete('/sign-out', ctrlWrapper(logoutUserController)); // Визов методу в контролері
-
-AuthRouter.get(
-  '/sign-id',
-  authMiddleware,
-  ctrlWrapper(getCurrentUserController),
-);
+// POST /auth/sign-out - вихід користувача
+AuthRouter.post('/sign-out', ctrlWrapper(logoutUserController)); // Визов методу в контролері
 
 export default AuthRouter;

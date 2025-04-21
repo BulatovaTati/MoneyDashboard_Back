@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 import createHttpError from 'http-errors';
-import { verifyToken } from '../utils/token.js';
+import { verifyAccessToken } from '../utils/token.js';
 
 export const authMiddleware = (req, res, next) => {
   try {
@@ -11,7 +10,7 @@ export const authMiddleware = (req, res, next) => {
     }
 
     const token = authHeader.split(' ')[1];
-    const payload = verifyToken(token);
+    const payload = verifyAccessToken(token);
 
     req.userId = payload.userId;
     next();

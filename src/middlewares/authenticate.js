@@ -1,25 +1,27 @@
-/* eslint-disable no-unused-vars */
 import createHttpError from 'http-errors';
-import { verifyToken } from '../utils/token.js';
-import { UsersCollection } from '../db/models/user.js';
+import { verifyAccessToken } from '../utils/token.js';
 
-export const authenticate = async (req, res, next) => {
-  const authHeader = req.headers.authorization || '';
-  const [type, token] = authHeader.split(' ');
+export const authMiddleware = (req, res, next) => {
+  const authHeader = req.headers.authorization;
 
-  if (type !== 'Bearer' || !token) {
-    return next(createHttpError(401, 'No token provided'));
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return next(
+      createHttpError(401, 'Authorization header missing or invalid'),
+    );
   }
 
+  const token = authHeader.split(' ')[1];
+
   try {
-    const decoded = verifyToken(token);
-    const user = await UsersCollection.findById(decoded.userId);
+    const decoded = verifyAccessToken(token);
 
-    if (!user) throw createHttpError(401, 'User not found');
-
-    req.user = user;
+    req.userId = decoded.userId;
     next();
-  } catch (error) {
-    return next(createHttpError(401, 'Invalid or expired token'));
+  } catch (err) {
+    if (err.name === 'TokenExpiredError') {
+      return next(createHttpError(403, 'Token expired'));
+    }
+
+    return next(createHttpError(401, 'Invalid token'));
   }
 };
