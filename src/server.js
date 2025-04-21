@@ -42,8 +42,6 @@ export const setupServer = async () => {
   app.use('*', notFoundHandler);
   app.use(errorHandler);
 
-  app.use('/api/transaction-categories', categoriesRouter);
-
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
