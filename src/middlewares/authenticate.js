@@ -1,25 +1,29 @@
-/* eslint-disable no-unused-vars */
+import jwt from 'jsonwebtoken';
 import createHttpError from 'http-errors';
-import { verifyToken } from '../utils/token.js';
-import { UsersCollection } from '../db/models/user.js';
+import { getEnvVar } from '../utils/getEnvVar.js';
 
-export const authenticate = async (req, res, next) => {
-  const authHeader = req.headers.authorization || '';
-  const [type, token] = authHeader.split(' ');
+const JWT_SECRET = getEnvVar('JWT_SECRET');
 
-  if (type !== 'Bearer' || !token) {
-    return next(createHttpError(401, 'No token provided'));
+export const authMiddleware = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return next(
+      createHttpError(401, 'Authorization header missing or invalid'),
+    );
   }
 
+  const token = authHeader.split(' ')[1];
+
   try {
-    const decoded = verifyToken(token);
-    const user = await UsersCollection.findById(decoded.userId);
-
-    if (!user) throw createHttpError(401, 'User not found');
-
-    req.user = user;
+    const decoded = jwt.verify(token, JWT_SECRET);
+    req.userId = decoded.userId;
     next();
-  } catch (error) {
-    return next(createHttpError(401, 'Invalid or expired token'));
+  } catch (err) {
+    if (err.name === 'TokenExpiredError') {
+      return next(createHttpError(403, 'Token expired'));
+    }
+
+    return next(createHttpError(401, 'Invalid token'));
   }
 };
