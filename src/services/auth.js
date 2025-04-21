@@ -49,3 +49,14 @@ export const loginUser = async (payload) => {
 export const logoutUser = async () => {
   return { message: 'Logged out successfully' };
 };
+
+export const getCurrentUser = async (userId) => {
+  const user = await UsersCollection.findById(userId).select('-password');
+
+  if (!user) throw createHttpError(404, 'User not found');
+
+  return {
+    email: user.email,
+    name: user.name,
+  };
+};
