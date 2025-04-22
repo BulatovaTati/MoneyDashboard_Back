@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import { getEnvVar } from './getEnvVar.js';
 
 const JWT_SECRET = getEnvVar('JWT_SECRET');
-const ACCESS_TOKEN_EXPIRES_IN = '1m';
+const ACCESS_TOKEN_EXPIRES_IN = '30h';
 
 export const generateAccessToken = (userId) => {
   return jwt.sign({ userId }, JWT_SECRET, {
