@@ -2,9 +2,7 @@ import getCategoriesService from '../services/categories.js';
 
 export const getCategories = async (req, res, next) => {
   try {
-    const { type } = req.query;
-
-    const categories = await getCategoriesService(type);
+    const categories = await getCategoriesService();
     res.json(categories);
   } catch (error) {
     next(error);

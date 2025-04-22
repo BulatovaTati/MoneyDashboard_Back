@@ -1,10 +1,9 @@
 import { Router } from 'express';
 import { getCategories } from '../controllers/categories.js';
-import { validateCategoryType } from '../middlewares/getCategories.js';
 
 const categoriesRouter = Router();
 
-categoriesRouter.get('/', validateCategoryType, getCategories);
+categoriesRouter.get('/', getCategories);
 
 export default categoriesRouter;
 
