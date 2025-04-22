@@ -16,7 +16,7 @@ const transactionSchema = new Schema(
       enum: ['expense', 'income'],
       default: 'income',
     },
-    category: {
+    categoryId: {
       type: String,
       ref: 'category',
       required: function () {
@@ -45,4 +45,4 @@ const transactionSchema = new Schema(
   { versionKey: false, timestamps: true },
 );
 
-export const TransactionCollection = model('user', transactionSchema);
+export const TransactionCollection = model('transaction', transactionSchema);

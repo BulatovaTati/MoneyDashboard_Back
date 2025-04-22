@@ -9,7 +9,7 @@ export const addTransactionsSchema = Joi.object({
     otherwise: Joi.forbidden(),
   }),
   value: Joi.number().min(0).required(),
-  date: Joi.date().required(),
+  date: Joi.date(),
 });
 
 export const editTransactionsSchema = Joi.object({
