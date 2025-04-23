@@ -1,7 +1,7 @@
 import createHttpError from 'http-errors';
 import { verifyAccessToken } from '../utils/token.js';
 
-export const authMiddleware = (req, res, next) => {
+export const isAuthenticated = (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
 
