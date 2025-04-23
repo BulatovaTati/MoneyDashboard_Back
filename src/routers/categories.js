@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { getCategories } from '../controllers/categories.js';
-import { isAuthenticated } from '../middlewares/authMiddleware.js';
+import { authMiddleware } from '../middlewares/authenticate.js';
 
 const categoriesRouter = Router();
 
-categoriesRouter.get('/', isAuthenticated, getCategories);
+categoriesRouter.get('/', authMiddleware, getCategories);
 
 export default categoriesRouter;
 
