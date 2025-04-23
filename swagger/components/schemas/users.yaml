@@ -1,0 +1,22 @@
+type: object
+required:
+  - name
+  - email
+  - password
+properties:
+  _id:
+    description: User's id
+    type: string
+    example: 67cd81343b84f810f27e521f
+  name:
+    description: User's name
+    type: string
+    example: 'Taras Shevchenko'
+  email:
+    description: User's email
+    type: string
+    example: 'Taras333@gmail.com'
+  password:
+    description: User's password
+    type: string
+    example: '12345678'

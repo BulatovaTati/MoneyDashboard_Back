@@ -1,0 +1,73 @@
+tags:
+  - Auth
+summary: User registration
+operationId: register
+description: 'User registration with provided credentials'
+security: []
+requestBody:
+  content:
+    application/json:
+      schema:
+        required:
+          - name
+          - email
+          - password
+        properties:
+          name:
+            type: string
+            example: 'Taras Shevchenko'
+          email:
+            type: string
+            example: 'Taras333@gmail.com'
+          password:
+            type: string
+            example: '12345678'
+          balance:
+            type: string
+            example: '0'
+responses:
+  '201':
+    description: 'User registration'
+    content:
+      application/json:
+        schema:
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: '201'
+            message:
+              type: string
+              example: 'Successfully registered a user!'
+            data:
+              $ref: '../../components/schemas/users.yaml'
+  '409':
+    description: 'Conflict Error'
+    content:
+      application\json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 409
+            message:
+              type: string
+              example: 'ConflictError'
+            data:
+              type: object
+              required:
+                - message
+              properties:
+                message:
+                  type: string
+                  example: 'Email in use'
+  '500':
+    $ref: '../../components/responses/500.yaml'

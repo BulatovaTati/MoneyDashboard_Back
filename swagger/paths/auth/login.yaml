@@ -1,0 +1,60 @@
+tags:
+  - Auth
+summary: Log In User
+operationId: login
+description: 'Log In with provided credentials'
+security: []
+requestBody:
+  content:
+    application/json:
+      schema:
+        required:
+          - email
+          - password
+        properties:
+          email:
+            type: string
+            example: 'Taras333@gmail.com'
+          password:
+            type: string
+            example: '12345678'
+          balance:
+            type: string
+            example: '0'
+responses:
+  '200':
+    description: "Log In into user's account"
+    content:
+      application/json:
+        schema:
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: '200'
+            message:
+              type: string
+              example: 'Successfully logged in an user!'
+            data:
+              type: object
+              required:
+                - name
+                - accessToken
+              properties:
+                name:
+                  type: string
+                  example: 'Taras Shevchenko'
+                accessToken:
+                  type: string
+                  example: 'FZ5lUcIf02vxG4jLikawUhFHm2SwUdX5J4ChyJSZQ2sUJYShhEBPmdKF3EUCHtSx'
+  '401':
+    $ref: '../../components/responses/401.yaml'
+    description: 'Unauthorized'
+  '404':
+    $ref: '../../components/responses/404.yaml'
+    description: 'User not found'
+  '500':
+    $ref: '../../components/responses/500.yaml'
