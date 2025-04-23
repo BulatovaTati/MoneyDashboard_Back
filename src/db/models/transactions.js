@@ -13,34 +13,23 @@ const transactionSchema = new Schema(
     },
     type: {
       type: String,
-      enum: ['expense', 'income'],
-      default: 'income',
+      enum: ['EXPENSE', 'INCOME'],
+      default: 'INCOME',
     },
     categoryId: {
       type: String,
-      ref: 'category',
-      required: function () {
-        return this.type === 'expense';
-      },
-      enum: [
-        'Main expenses',
-        'Products',
-        'Car',
-        'Self care',
-        'Child care',
-        'Household products',
-        'Education',
-        'Leisure',
-        'Other expenses',
-        'Entertainment',
-      ],
+      required: true,
     },
-    value: {
+    amount: {
       type: Number,
       min: 0,
       required: [true, 'Funds value is required'],
     },
     date: { type: Date, required: true },
+    balanceAfter: {
+      type: Number,
+      required: true,
+    },
   },
   { versionKey: false, timestamps: true },
 );

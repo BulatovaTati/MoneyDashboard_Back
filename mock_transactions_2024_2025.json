@@ -1,0 +1,737 @@
+[
+  {
+    "transactionDate": "2024-01-16",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Haircut",
+    "amount": 206.49
+  },
+  {
+    "transactionDate": "2024-01-04",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Rent payment",
+    "amount": 253.18
+  },
+  {
+    "transactionDate": "2024-01-03",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Tuition fee",
+    "amount": 96.69
+  },
+  {
+    "transactionDate": "2024-01-24",
+    "type": "EXPENSE",
+    "categoryId": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
+    "comment": "Rent payment",
+    "amount": 290.76
+  },
+  {
+    "transactionDate": "2024-01-21",
+    "type": "EXPENSE",
+    "categoryId": "128673b5-2f9a-46ae-a428-ec48cf1effa1",
+    "comment": "Netflix",
+    "amount": 9.29
+  },
+  {
+    "transactionDate": "2024-01-24",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Rent payment",
+    "amount": 2018.9
+  },
+  {
+    "transactionDate": "2024-01-28",
+    "type": "EXPENSE",
+    "categoryId": "1272fcc4-d59f-462d-ad33-a85a075e5581",
+    "comment": "Monthly salary",
+    "amount": 5.74
+  },
+  {
+    "transactionDate": "2024-02-27",
+    "type": "EXPENSE",
+    "categoryId": "c9d9e447-1b83-4238-8712-edc77b18b739",
+    "comment": "Rent payment",
+    "amount": 63.54
+  },
+  {
+    "transactionDate": "2024-02-11",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Rent payment",
+    "amount": 247.48
+  },
+  {
+    "transactionDate": "2024-02-02",
+    "type": "EXPENSE",
+    "categoryId": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
+    "comment": "Tax refund",
+    "amount": 274.66
+  },
+  {
+    "transactionDate": "2024-02-26",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Movie night",
+    "amount": 242.62
+  },
+  {
+    "transactionDate": "2024-02-03",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Gym membership",
+    "amount": 291.37
+  },
+  {
+    "transactionDate": "2024-02-25",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Movie night",
+    "amount": 113.37
+  },
+  {
+    "transactionDate": "2024-02-02",
+    "type": "EXPENSE",
+    "categoryId": "128673b5-2f9a-46ae-a428-ec48cf1effa1",
+    "comment": "Monthly salary",
+    "amount": 76.46
+  },
+  {
+    "transactionDate": "2024-03-20",
+    "type": "EXPENSE",
+    "categoryId": "bbdd58b8-e804-4ab9-bf4f-695da5ef64f4",
+    "comment": "Rent payment",
+    "amount": 85.31
+  },
+  {
+    "transactionDate": "2024-03-07",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Tuition fee",
+    "amount": 207.03
+  },
+  {
+    "transactionDate": "2024-03-17",
+    "type": "EXPENSE",
+    "categoryId": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
+    "comment": "Haircut",
+    "amount": 289.0
+  },
+  {
+    "transactionDate": "2024-03-22",
+    "type": "EXPENSE",
+    "categoryId": "c143130f-7d1e-4011-90a4-54766d4e308e",
+    "comment": "Cleaning supplies",
+    "amount": 24.21
+  },
+  {
+    "transactionDate": "2024-03-18",
+    "type": "EXPENSE",
+    "categoryId": "c143130f-7d1e-4011-90a4-54766d4e308e",
+    "comment": "Children's toys",
+    "amount": 189.7
+  },
+  {
+    "transactionDate": "2024-03-22",
+    "type": "EXPENSE",
+    "categoryId": "27eb4b75-9a42-4991-a802-4aefe21ac3ce",
+    "comment": "Dining out",
+    "amount": 294.09
+  },
+  {
+    "transactionDate": "2024-03-11",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Movie night",
+    "amount": 1623.23
+  },
+  {
+    "transactionDate": "2024-04-24",
+    "type": "EXPENSE",
+    "categoryId": "3caa7ba0-79c0-40b9-ae1f-de1af1f6e386",
+    "comment": "Movie night",
+    "amount": 92.38
+  },
+  {
+    "transactionDate": "2024-04-03",
+    "type": "EXPENSE",
+    "categoryId": "1272fcc4-d59f-462d-ad33-a85a075e5581",
+    "comment": "Cleaning supplies",
+    "amount": 188.34
+  },
+  {
+    "transactionDate": "2024-04-04",
+    "type": "EXPENSE",
+    "categoryId": "27eb4b75-9a42-4991-a802-4aefe21ac3ce",
+    "comment": "Netflix",
+    "amount": 238.71
+  },
+  {
+    "transactionDate": "2024-04-03",
+    "type": "EXPENSE",
+    "categoryId": "c9d9e447-1b83-4238-8712-edc77b18b739",
+    "comment": "Rent payment",
+    "amount": 33.94
+  },
+  {
+    "transactionDate": "2024-04-14",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Monthly salary",
+    "amount": 1335.83
+  },
+  {
+    "transactionDate": "2024-04-14",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Cleaning supplies",
+    "amount": 2186.62
+  },
+  {
+    "transactionDate": "2024-04-13",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Cleaning supplies",
+    "amount": 1520.76
+  },
+  {
+    "transactionDate": "2024-05-28",
+    "type": "EXPENSE",
+    "categoryId": "128673b5-2f9a-46ae-a428-ec48cf1effa1",
+    "comment": "Cleaning supplies",
+    "amount": 70.17
+  },
+  {
+    "transactionDate": "2024-05-24",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Fuel",
+    "amount": 2964.34
+  },
+  {
+    "transactionDate": "2024-05-07",
+    "type": "EXPENSE",
+    "categoryId": "c9d9e447-1b83-4238-8712-edc77b18b739",
+    "comment": "Grocery shopping",
+    "amount": 158.31
+  },
+  {
+    "transactionDate": "2024-05-04",
+    "type": "EXPENSE",
+    "categoryId": "c9d9e447-1b83-4238-8712-edc77b18b739",
+    "comment": "Haircut",
+    "amount": 148.76
+  },
+  {
+    "transactionDate": "2024-05-25",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Netflix",
+    "amount": 2103.57
+  },
+  {
+    "transactionDate": "2024-05-21",
+    "type": "EXPENSE",
+    "categoryId": "719626f1-9d23-4e99-84f5-289024e437a8",
+    "comment": "Fuel",
+    "amount": 203.14
+  },
+  {
+    "transactionDate": "2024-05-25",
+    "type": "EXPENSE",
+    "categoryId": "27eb4b75-9a42-4991-a802-4aefe21ac3ce",
+    "comment": "Cleaning supplies",
+    "amount": 175.0
+  },
+  {
+    "transactionDate": "2024-06-18",
+    "type": "EXPENSE",
+    "categoryId": "128673b5-2f9a-46ae-a428-ec48cf1effa1",
+    "comment": "Gym membership",
+    "amount": 121.2
+  },
+  {
+    "transactionDate": "2024-06-08",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Netflix",
+    "amount": 1127.35
+  },
+  {
+    "transactionDate": "2024-06-21",
+    "type": "EXPENSE",
+    "categoryId": "719626f1-9d23-4e99-84f5-289024e437a8",
+    "comment": "Movie night",
+    "amount": 14.07
+  },
+  {
+    "transactionDate": "2024-06-09",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Fuel",
+    "amount": 2342.85
+  },
+  {
+    "transactionDate": "2024-06-18",
+    "type": "EXPENSE",
+    "categoryId": "c143130f-7d1e-4011-90a4-54766d4e308e",
+    "comment": "Tax refund",
+    "amount": 238.79
+  },
+  {
+    "transactionDate": "2024-06-25",
+    "type": "EXPENSE",
+    "categoryId": "c143130f-7d1e-4011-90a4-54766d4e308e",
+    "comment": "Cleaning supplies",
+    "amount": 240.76
+  },
+  {
+    "transactionDate": "2024-06-21",
+    "type": "EXPENSE",
+    "categoryId": "bbdd58b8-e804-4ab9-bf4f-695da5ef64f4",
+    "comment": "Fuel",
+    "amount": 231.22
+  },
+  {
+    "transactionDate": "2024-07-20",
+    "type": "EXPENSE",
+    "categoryId": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
+    "comment": "Children's toys",
+    "amount": 190.66
+  },
+  {
+    "transactionDate": "2024-07-23",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Tax refund",
+    "amount": 2721.87
+  },
+  {
+    "transactionDate": "2024-07-20",
+    "type": "EXPENSE",
+    "categoryId": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
+    "comment": "Rent payment",
+    "amount": 242.75
+  },
+  {
+    "transactionDate": "2024-07-12",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Rent payment",
+    "amount": 2445.49
+  },
+  {
+    "transactionDate": "2024-07-16",
+    "type": "EXPENSE",
+    "categoryId": "719626f1-9d23-4e99-84f5-289024e437a8",
+    "comment": "Fuel",
+    "amount": 64.04
+  },
+  {
+    "transactionDate": "2024-07-24",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Tax refund",
+    "amount": 556.09
+  },
+  {
+    "transactionDate": "2024-07-05",
+    "type": "EXPENSE",
+    "categoryId": "719626f1-9d23-4e99-84f5-289024e437a8",
+    "comment": "Children's toys",
+    "amount": 255.92
+  },
+  {
+    "transactionDate": "2024-08-22",
+    "type": "EXPENSE",
+    "categoryId": "128673b5-2f9a-46ae-a428-ec48cf1effa1",
+    "comment": "Children's toys",
+    "amount": 217.6
+  },
+  {
+    "transactionDate": "2024-08-21",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Movie night",
+    "amount": 2352.49
+  },
+  {
+    "transactionDate": "2024-08-10",
+    "type": "EXPENSE",
+    "categoryId": "27eb4b75-9a42-4991-a802-4aefe21ac3ce",
+    "comment": "Tuition fee",
+    "amount": 102.33
+  },
+  {
+    "transactionDate": "2024-08-21",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Rent payment",
+    "amount": 2943.42
+  },
+  {
+    "transactionDate": "2024-08-21",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Tax refund",
+    "amount": 34.92
+  },
+  {
+    "transactionDate": "2024-08-02",
+    "type": "EXPENSE",
+    "categoryId": "3caa7ba0-79c0-40b9-ae1f-de1af1f6e386",
+    "comment": "Gym membership",
+    "amount": 156.2
+  },
+  {
+    "transactionDate": "2024-08-01",
+    "type": "EXPENSE",
+    "categoryId": "c9d9e447-1b83-4238-8712-edc77b18b739",
+    "comment": "Gym membership",
+    "amount": 276.17
+  },
+  {
+    "transactionDate": "2024-09-04",
+    "type": "EXPENSE",
+    "categoryId": "719626f1-9d23-4e99-84f5-289024e437a8",
+    "comment": "Cleaning supplies",
+    "amount": 130.08
+  },
+  {
+    "transactionDate": "2024-09-04",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Rent payment",
+    "amount": 978.88
+  },
+  {
+    "transactionDate": "2024-09-23",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Rent payment",
+    "amount": 2981.96
+  },
+  {
+    "transactionDate": "2024-09-04",
+    "type": "EXPENSE",
+    "categoryId": "c143130f-7d1e-4011-90a4-54766d4e308e",
+    "comment": "Movie night",
+    "amount": 135.16
+  },
+  {
+    "transactionDate": "2024-09-24",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Movie night",
+    "amount": 2393.81
+  },
+  {
+    "transactionDate": "2024-09-08",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Netflix",
+    "amount": 465.87
+  },
+  {
+    "transactionDate": "2024-09-19",
+    "type": "EXPENSE",
+    "categoryId": "bbdd58b8-e804-4ab9-bf4f-695da5ef64f4",
+    "comment": "Fuel",
+    "amount": 165.11
+  },
+  {
+    "transactionDate": "2024-10-19",
+    "type": "EXPENSE",
+    "categoryId": "c9d9e447-1b83-4238-8712-edc77b18b739",
+    "comment": "Electricity bill",
+    "amount": 285.42
+  },
+  {
+    "transactionDate": "2024-10-24",
+    "type": "EXPENSE",
+    "categoryId": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
+    "comment": "Dining out",
+    "amount": 244.47
+  },
+  {
+    "transactionDate": "2024-10-14",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Netflix",
+    "amount": 53.31
+  },
+  {
+    "transactionDate": "2024-10-25",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Movie night",
+    "amount": 797.63
+  },
+  {
+    "transactionDate": "2024-10-10",
+    "type": "EXPENSE",
+    "categoryId": "c143130f-7d1e-4011-90a4-54766d4e308e",
+    "comment": "Rent payment",
+    "amount": 58.21
+  },
+  {
+    "transactionDate": "2024-10-27",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Movie night",
+    "amount": 165.35
+  },
+  {
+    "transactionDate": "2024-10-13",
+    "type": "EXPENSE",
+    "categoryId": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
+    "comment": "Dining out",
+    "amount": 142.9
+  },
+  {
+    "transactionDate": "2024-11-01",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Grocery shopping",
+    "amount": 516.32
+  },
+  {
+    "transactionDate": "2024-11-22",
+    "type": "EXPENSE",
+    "categoryId": "bbdd58b8-e804-4ab9-bf4f-695da5ef64f4",
+    "comment": "Cleaning supplies",
+    "amount": 67.47
+  },
+  {
+    "transactionDate": "2024-11-18",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Tax refund",
+    "amount": 2159.32
+  },
+  {
+    "transactionDate": "2024-11-07",
+    "type": "EXPENSE",
+    "categoryId": "128673b5-2f9a-46ae-a428-ec48cf1effa1",
+    "comment": "Electricity bill",
+    "amount": 56.94
+  },
+  {
+    "transactionDate": "2024-11-24",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Grocery shopping",
+    "amount": 129.31
+  },
+  {
+    "transactionDate": "2024-11-12",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Electricity bill",
+    "amount": 300.1
+  },
+  {
+    "transactionDate": "2024-11-25",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Netflix",
+    "amount": 223.55
+  },
+  {
+    "transactionDate": "2024-12-19",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Movie night",
+    "amount": 1517.43
+  },
+  {
+    "transactionDate": "2024-12-23",
+    "type": "EXPENSE",
+    "categoryId": "128673b5-2f9a-46ae-a428-ec48cf1effa1",
+    "comment": "Movie night",
+    "amount": 50.79
+  },
+  {
+    "transactionDate": "2024-12-09",
+    "type": "EXPENSE",
+    "categoryId": "128673b5-2f9a-46ae-a428-ec48cf1effa1",
+    "comment": "Tuition fee",
+    "amount": 72.16
+  },
+  {
+    "transactionDate": "2024-12-01",
+    "type": "EXPENSE",
+    "categoryId": "c143130f-7d1e-4011-90a4-54766d4e308e",
+    "comment": "Cleaning supplies",
+    "amount": 194.01
+  },
+  {
+    "transactionDate": "2024-12-15",
+    "type": "EXPENSE",
+    "categoryId": "1272fcc4-d59f-462d-ad33-a85a075e5581",
+    "comment": "Dining out",
+    "amount": 238.24
+  },
+  {
+    "transactionDate": "2024-12-05",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Monthly salary",
+    "amount": 1128.58
+  },
+  {
+    "transactionDate": "2024-12-17",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Movie night",
+    "amount": 78.16
+  },
+  {
+    "transactionDate": "2025-01-27",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Grocery shopping",
+    "amount": 2592.99
+  },
+  {
+    "transactionDate": "2025-01-01",
+    "type": "EXPENSE",
+    "categoryId": "c143130f-7d1e-4011-90a4-54766d4e308e",
+    "comment": "Monthly salary",
+    "amount": 148.41
+  },
+  {
+    "transactionDate": "2025-01-20",
+    "type": "EXPENSE",
+    "categoryId": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
+    "comment": "Tuition fee",
+    "amount": 55.7
+  },
+  {
+    "transactionDate": "2025-01-14",
+    "type": "EXPENSE",
+    "categoryId": "27eb4b75-9a42-4991-a802-4aefe21ac3ce",
+    "comment": "Cleaning supplies",
+    "amount": 59.34
+  },
+  {
+    "transactionDate": "2025-01-24",
+    "type": "EXPENSE",
+    "categoryId": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
+    "comment": "Tax refund",
+    "amount": 92.64
+  },
+  {
+    "transactionDate": "2025-01-17",
+    "type": "EXPENSE",
+    "categoryId": "3caa7ba0-79c0-40b9-ae1f-de1af1f6e386",
+    "comment": "Grocery shopping",
+    "amount": 200.04
+  },
+  {
+    "transactionDate": "2025-01-22",
+    "type": "EXPENSE",
+    "categoryId": "719626f1-9d23-4e99-84f5-289024e437a8",
+    "comment": "Cleaning supplies",
+    "amount": 169.25
+  },
+  {
+    "transactionDate": "2025-02-01",
+    "type": "EXPENSE",
+    "categoryId": "c9d9e447-1b83-4238-8712-edc77b18b739",
+    "comment": "Netflix",
+    "amount": 18.24
+  },
+  {
+    "transactionDate": "2025-02-24",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Cleaning supplies",
+    "amount": 2111.26
+  },
+  {
+    "transactionDate": "2025-02-07",
+    "type": "EXPENSE",
+    "categoryId": "1272fcc4-d59f-462d-ad33-a85a075e5581",
+    "comment": "Haircut",
+    "amount": 119.29
+  },
+  {
+    "transactionDate": "2025-02-05",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Haircut",
+    "amount": 266.76
+  },
+  {
+    "transactionDate": "2025-02-23",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Children's toys",
+    "amount": 123.58
+  },
+  {
+    "transactionDate": "2025-02-19",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Fuel",
+    "amount": 314.74
+  },
+  {
+    "transactionDate": "2025-02-24",
+    "type": "EXPENSE",
+    "categoryId": "bbdd58b8-e804-4ab9-bf4f-695da5ef64f4",
+    "comment": "Monthly salary",
+    "amount": 193.67
+  },
+  {
+    "transactionDate": "2025-03-13",
+    "type": "EXPENSE",
+    "categoryId": "719626f1-9d23-4e99-84f5-289024e437a8",
+    "comment": "Dining out",
+    "amount": 134.42
+  },
+  {
+    "transactionDate": "2025-03-24",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Netflix",
+    "amount": 1570.47
+  },
+  {
+    "transactionDate": "2025-03-14",
+    "type": "EXPENSE",
+    "categoryId": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+    "comment": "Gym membership",
+    "amount": 67.97
+  },
+  {
+    "transactionDate": "2025-03-22",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Electricity bill",
+    "amount": 1804.28
+  },
+  {
+    "transactionDate": "2025-03-11",
+    "type": "INCOME",
+    "categoryId": "063f1132-ba5d-42b4-951d-44011ca46262",
+    "comment": "Movie night",
+    "amount": 2542.66
+  },
+  {
+    "transactionDate": "2025-03-25",
+    "type": "EXPENSE",
+    "categoryId": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
+    "comment": "Gym membership",
+    "amount": 210.21
+  },
+  {
+    "transactionDate": "2025-03-13",
+    "type": "EXPENSE",
+    "categoryId": "3caa7ba0-79c0-40b9-ae1f-de1af1f6e386",
+    "comment": "Tax refund",
+    "amount": 248.32
+  }
+]
