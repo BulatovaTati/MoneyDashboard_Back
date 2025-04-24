@@ -1,0 +1,79 @@
+tags:
+  - Auth
+summary: Log In User
+operationId: login
+description: Log in with provided credentials
+security: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - email
+          - password
+        properties:
+          email:
+            type: string
+            format: email
+            example: Taras333@gmail.com
+          password:
+            type: string
+            format: password
+            example: 12345678
+
+responses:
+  '200':
+    description: Successfully logged in user
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: Successfully logged in!
+            data:
+              type: object
+              required:
+                - user
+                - token
+              properties:
+                user:
+                  type: object
+                  required:
+                    - id
+                    - name
+                    - email
+                    - balance
+                  properties:
+                    id:
+                      type: string
+                      example: 680a48167665cacdd74a4f2e
+                    name:
+                      type: string
+                      example: Taras Shevchenko
+                    email:
+                      type: string
+                      example: Taras333@gmail.com
+                    balance:
+                      type: number
+                      example: 0
+                token:
+                  type: string
+                  example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+  '401':
+    $ref: '../../components/responses/401.yaml'
+  '404':
+    $ref: '../../components/responses/404.yaml'
+  '500':
+    $ref: '../../components/responses/500.yaml'
