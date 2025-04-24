@@ -29,6 +29,9 @@ paths:
   /users/current:
     get:
       $ref: ../swagger/paths/users/current.yaml
+  /api/transaction-categories:
+    get:
+      $ref: ../swagger/paths/categories/api-transaction-categories.yaml
 components:
   securitySchemes:
     bearerAuth:

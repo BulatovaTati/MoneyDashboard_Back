@@ -1,0 +1,45 @@
+tags:
+  - Categories
+summary: Get list of transaction categories
+description: Get list of transaction categories
+operationId: getCategoriesService
+security:
+  - bearerAuth: []
+responses:
+  '200':
+    description: Successful response with an array of transaction categories
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: 'Success'
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Unique category ID
+                    example: 'c9d9e447-1b83-4238-8712-edc77b18b739'
+                  name:
+                    type: string
+                    description: Category name
+                    example: 'Main expenses'
+                  type:
+                    type: string
+                    enum:
+                      - EXPENSE
+                      - INCOME
+                    description: Category type (expense or income)
+                    example: 'EXPENSE'
+  '401':
+    $ref: '../../components/responses/401.yaml'
+  '500':
+    $ref: '../../components/responses/500.yaml'
