@@ -20,3 +20,6 @@ properties:
     description: User's password
     type: string
     example: '12345678'
+  balance:
+    type: number
+    default: 0,

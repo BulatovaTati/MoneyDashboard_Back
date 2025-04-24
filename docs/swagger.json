@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "https://nodejs-hw-nq50.onrender.com"
+      "url": "https://moneydashboard-back.onrender.com"
     }
   ],
   "tags": [
@@ -27,9 +27,7 @@
   "paths": {
     "/auth/register": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "summary": "User registration",
         "operationId": "register",
         "description": "User registration with provided credentials",
@@ -38,11 +36,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "name",
-                  "email",
-                  "password"
-                ],
+                "required": ["name", "email", "password"],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -57,7 +51,7 @@
                     "example": "12345678"
                   },
                   "balance": {
-                    "type": "string",
+                    "type": "number",
                     "example": "0"
                   }
                 }
@@ -71,11 +65,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": [
-                    "status",
-                    "message",
-                    "data"
-                  ],
+                  "required": ["status", "message", "data"],
                   "properties": {
                     "status": {
                       "type": "integer",
@@ -99,11 +89,7 @@
               "application\\json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "status",
-                    "message",
-                    "data"
-                  ],
+                  "required": ["status", "message", "data"],
                   "properties": {
                     "status": {
                       "type": "integer",
@@ -115,9 +101,7 @@
                     },
                     "data": {
                       "type": "object",
-                      "required": [
-                        "message"
-                      ],
+                      "required": ["message"],
                       "properties": {
                         "message": {
                           "type": "string",
@@ -138,9 +122,7 @@
     },
     "/auth/login": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "summary": "Log In User",
         "operationId": "login",
         "description": "Log In with provided credentials",
@@ -149,10 +131,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "email",
-                  "password"
-                ],
+                "required": ["email", "password"],
                 "properties": {
                   "email": {
                     "type": "string",
@@ -163,7 +142,7 @@
                     "example": "12345678"
                   },
                   "balance": {
-                    "type": "string",
+                    "type": "number",
                     "example": "0"
                   }
                 }
@@ -177,11 +156,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": [
-                    "status",
-                    "message",
-                    "data"
-                  ],
+                  "required": ["status", "message", "data"],
                   "properties": {
                     "status": {
                       "type": "integer",
@@ -193,10 +168,7 @@
                     },
                     "data": {
                       "type": "object",
-                      "required": [
-                        "name",
-                        "accessToken"
-                      ],
+                      "required": ["name", "accessToken"],
                       "properties": {
                         "name": {
                           "type": "string",
@@ -229,9 +201,7 @@
     },
     "/auth/logout": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "summary": "Log Out User",
         "operationId": "logout",
         "description": "Log Out from account.",
@@ -252,9 +222,7 @@
     },
     "/users/current": {
       "get": {
-        "tags": [
-          "Users"
-        ],
+        "tags": ["Users"],
         "summary": "Get current user info",
         "operationId": "Current",
         "description": "Returns the currently authenticated user's information.",
@@ -327,11 +295,7 @@
     "schemas": {
       "users": {
         "type": "object",
-        "required": [
-          "name",
-          "email",
-          "password"
-        ],
+        "required": ["name", "email", "password"],
         "properties": {
           "_id": {
             "description": "User's id",
@@ -352,6 +316,10 @@
             "description": "User's password",
             "type": "string",
             "example": "12345678"
+          },
+          "balance": {
+            "type": "number",
+            "default": "0,"
           }
         }
       }
@@ -363,11 +331,7 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": [
-                "status",
-                "message",
-                "data"
-              ],
+              "required": ["status", "message", "data"],
               "properties": {
                 "status": {
                   "type": "integer",
@@ -379,9 +343,7 @@
                 },
                 "data": {
                   "type": "object",
-                  "required": [
-                    "message"
-                  ],
+                  "required": ["message"],
                   "properties": {
                     "message": {
                       "type": "string",
@@ -400,11 +362,7 @@
           "application\\json": {
             "schema": {
               "type": "object",
-              "required": [
-                "status",
-                "message",
-                "data"
-              ],
+              "required": ["status", "message", "data"],
               "properties": {
                 "status": {
                   "type": "integer",
@@ -416,9 +374,7 @@
                 },
                 "data": {
                   "type": "object",
-                  "required": [
-                    "message"
-                  ],
+                  "required": ["message"],
                   "properties": {
                     "message": {
                       "type": "string",
@@ -437,11 +393,7 @@
           "application\\json": {
             "schema": {
               "type": "object",
-              "required": [
-                "status",
-                "message",
-                "data"
-              ],
+              "required": ["status", "message", "data"],
               "properties": {
                 "status": {
                   "type": "integer",
@@ -453,9 +405,7 @@
                 },
                 "data": {
                   "type": "object",
-                  "required": [
-                    "message"
-                  ],
+                  "required": ["message"],
                   "properties": {
                     "message": {
                       "type": "string",

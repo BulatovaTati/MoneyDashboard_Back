@@ -12,20 +12,17 @@ tags:
   - name: Auth
     description: Auth operations.
 servers:
-  - url: https://nodejs-hw-nq50.onrender.com
+  - url: https://moneydashboard-back.onrender.com
 
 paths:
   /auth/register:
     post:
-      $ref: ../swagger/paths/auth/register.yaml
+      $ref: ../swagger/paths/auth/sing-up.yaml
   /auth/login:
     post:
-      $ref: ../swagger/paths/auth/login.yaml
+      $ref: ../swagger/paths/auth/sing-in.yaml
   /auth/logout:
     post:
-      $ref: ../swagger/paths/auth/logout.yaml
-  /users/current:
-    get:
       $ref: ../swagger/paths/users/current.yaml
 
 components:

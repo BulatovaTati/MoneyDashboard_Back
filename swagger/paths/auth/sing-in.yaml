@@ -19,7 +19,7 @@ requestBody:
             type: string
             example: '12345678'
           balance:
-            type: string
+            type: number
             example: '0'
 responses:
   '200':
