@@ -9,9 +9,9 @@ export const addTransactionsSchema = Joi.object({
 });
 
 export const editTransactionsSchema = Joi.object({
-  comment: Joi.string().required(),
-  type: Joi.string().valid('INCOME', 'EXPENSE').required(),
-  categoryId: Joi.string().required(),
-  amount: Joi.number().min(0).required(),
-  date: Joi.date().required(),
+  comment: Joi.string(),
+  type: Joi.string().valid('INCOME', 'EXPENSE'),
+  categoryId: Joi.string(),
+  amount: Joi.number().min(0),
+  date: Joi.date(),
 });
