@@ -5,7 +5,7 @@ export const addTransactionsSchema = Joi.object({
   type: Joi.string().valid('INCOME', 'EXPENSE').required(),
   categoryId: Joi.string().required(),
   amount: Joi.number().min(0).required(),
-  transactionDate: Joi.date(),
+  date: Joi.date(),
 });
 
 export const editTransactionsSchema = Joi.object({
@@ -13,5 +13,5 @@ export const editTransactionsSchema = Joi.object({
   type: Joi.string().valid('INCOME', 'EXPENSE').required(),
   categoryId: Joi.string().required(),
   amount: Joi.number().min(0).required(),
-  transactionDate: Joi.date().required(),
+  date: Joi.date().required(),
 });
