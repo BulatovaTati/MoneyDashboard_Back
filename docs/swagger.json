@@ -16,18 +16,24 @@
   ],
   "tags": [
     {
-      "name": "WalletFlow",
-      "description": "WalletFlow operations."
+      "name": "Transactions",
+      "description": "Transactions operations."
     },
     {
       "name": "Auth",
       "description": "Auth operations."
+    },
+    {
+      "name": "Users",
+      "description": "Auth operations."
     }
   ],
   "paths": {
-    "/auth/register": {
+    "/auth/sing-up": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "User registration",
         "operationId": "register",
         "description": "User registration with provided credentials",
@@ -36,7 +42,11 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": ["name", "email", "password"],
+                "required": [
+                  "name",
+                  "email",
+                  "password"
+                ],
                 "properties": {
                   "name": {
                     "type": "string",
@@ -65,7 +75,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["status", "message", "data"],
+                  "required": [
+                    "status",
+                    "message",
+                    "data"
+                  ],
                   "properties": {
                     "status": {
                       "type": "integer",
@@ -89,7 +103,11 @@
               "application\\json": {
                 "schema": {
                   "type": "object",
-                  "required": ["status", "message", "data"],
+                  "required": [
+                    "status",
+                    "message",
+                    "data"
+                  ],
                   "properties": {
                     "status": {
                       "type": "integer",
@@ -101,7 +119,9 @@
                     },
                     "data": {
                       "type": "object",
-                      "required": ["message"],
+                      "required": [
+                        "message"
+                      ],
                       "properties": {
                         "message": {
                           "type": "string",
@@ -120,30 +140,35 @@
         }
       }
     },
-    "/auth/login": {
+    "/auth/sing-in": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "Log In User",
         "operationId": "login",
-        "description": "Log In with provided credentials",
+        "description": "Log in with provided credentials",
         "security": [],
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "required": ["email", "password"],
+                "type": "object",
+                "required": [
+                  "email",
+                  "password"
+                ],
                 "properties": {
                   "email": {
                     "type": "string",
+                    "format": "email",
                     "example": "Taras333@gmail.com"
                   },
                   "password": {
                     "type": "string",
-                    "example": "12345678"
-                  },
-                  "balance": {
-                    "type": "number",
-                    "example": "0"
+                    "format": "password",
+                    "example": 12345678
                   }
                 }
               }
@@ -152,31 +177,62 @@
         },
         "responses": {
           "200": {
-            "description": "Log In into user's account",
+            "description": "Successfully logged in user",
             "content": {
               "application/json": {
                 "schema": {
-                  "required": ["status", "message", "data"],
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "data"
+                  ],
                   "properties": {
                     "status": {
                       "type": "integer",
-                      "example": "200"
+                      "example": 200
                     },
                     "message": {
                       "type": "string",
-                      "example": "Successfully logged in an user!"
+                      "example": "Successfully logged in!"
                     },
                     "data": {
                       "type": "object",
-                      "required": ["name", "accessToken"],
+                      "required": [
+                        "user",
+                        "token"
+                      ],
                       "properties": {
-                        "name": {
-                          "type": "string",
-                          "example": "Taras Shevchenko"
+                        "user": {
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "name",
+                            "email",
+                            "balance"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "example": "680a48167665cacdd74a4f2e"
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "Taras Shevchenko"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "Taras333@gmail.com"
+                            },
+                            "balance": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
                         },
-                        "accessToken": {
+                        "token": {
                           "type": "string",
-                          "example": "FZ5lUcIf02vxG4jLikawUhFHm2SwUdX5J4ChyJSZQ2sUJYShhEBPmdKF3EUCHtSx"
+                          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
                         }
                       }
                     }
@@ -186,12 +242,10 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/401",
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/401"
           },
           "404": {
-            "$ref": "#/components/responses/404",
-            "description": "User not found"
+            "$ref": "#/components/responses/404"
           },
           "500": {
             "$ref": "#/components/responses/500"
@@ -199,9 +253,11 @@
         }
       }
     },
-    "/auth/logout": {
+    "/auth/sing-out": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "Log Out User",
         "operationId": "logout",
         "description": "Log Out from account.",
@@ -222,9 +278,11 @@
     },
     "/users/current": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "summary": "Get current user info",
-        "operationId": "Current",
+        "operationId": "getCurrentUser",
         "description": "Returns the currently authenticated user's information.",
         "security": [
           {
@@ -238,21 +296,56 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "data"
+                  ],
                   "properties": {
-                    "user": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "User info retrieved"
+                    },
+                    "data": {
                       "type": "object",
+                      "required": [
+                        "_id",
+                        "name",
+                        "email",
+                        "balance",
+                        "createdAt",
+                        "updatedAt"
+                      ],
                       "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "680a48167665cacdd74a4f2e"
+                        },
                         "name": {
                           "type": "string",
-                          "example": "Taras Shevchenko"
+                          "example": "Tati"
                         },
                         "email": {
                           "type": "string",
-                          "example": "Taras333@gmail.com"
+                          "example": "test@gmail.com"
                         },
                         "balance": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "createdAt": {
                           "type": "string",
-                          "example": "0"
+                          "format": "date-time",
+                          "example": "2025-04-24T14:17:58.211Z"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "2025-04-24T14:37:34.453Z"
                         }
                       }
                     }
@@ -267,6 +360,10 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "required": [
+                    "status",
+                    "message"
+                  ],
                   "properties": {
                     "status": {
                       "type": "integer",
@@ -295,7 +392,11 @@
     "schemas": {
       "users": {
         "type": "object",
-        "required": ["name", "email", "password"],
+        "required": [
+          "name",
+          "email",
+          "password"
+        ],
         "properties": {
           "_id": {
             "description": "User's id",
@@ -331,7 +432,11 @@
           "application/json": {
             "schema": {
               "type": "object",
-              "required": ["status", "message", "data"],
+              "required": [
+                "status",
+                "message",
+                "data"
+              ],
               "properties": {
                 "status": {
                   "type": "integer",
@@ -343,7 +448,9 @@
                 },
                 "data": {
                   "type": "object",
-                  "required": ["message"],
+                  "required": [
+                    "message"
+                  ],
                   "properties": {
                     "message": {
                       "type": "string",
@@ -362,7 +469,11 @@
           "application\\json": {
             "schema": {
               "type": "object",
-              "required": ["status", "message", "data"],
+              "required": [
+                "status",
+                "message",
+                "data"
+              ],
               "properties": {
                 "status": {
                   "type": "integer",
@@ -374,7 +485,9 @@
                 },
                 "data": {
                   "type": "object",
-                  "required": ["message"],
+                  "required": [
+                    "message"
+                  ],
                   "properties": {
                     "message": {
                       "type": "string",
@@ -393,7 +506,11 @@
           "application\\json": {
             "schema": {
               "type": "object",
-              "required": ["status", "message", "data"],
+              "required": [
+                "status",
+                "message",
+                "data"
+              ],
               "properties": {
                 "status": {
                   "type": "integer",
@@ -405,7 +522,9 @@
                 },
                 "data": {
                   "type": "object",
-                  "required": ["message"],
+                  "required": [
+                    "message"
+                  ],
                   "properties": {
                     "message": {
                       "type": "string",

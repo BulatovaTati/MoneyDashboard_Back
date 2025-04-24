@@ -7,24 +7,28 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   description: This is a documentation of WalletFlow App
 tags:
-  - name: WalletFlow
-    description: WalletFlow operations.
+  - name: Transactions
+    description: Transactions operations.
   - name: Auth
+    description: Auth operations.
+  - name: Users
     description: Auth operations.
 servers:
   - url: https://moneydashboard-back.onrender.com
 
 paths:
-  /auth/register:
+  /auth/sing-up:
     post:
       $ref: ../swagger/paths/auth/sing-up.yaml
-  /auth/login:
+  /auth/sing-in:
     post:
       $ref: ../swagger/paths/auth/sing-in.yaml
-  /auth/logout:
+  /auth/sing-out:
     post:
+      $ref: ../swagger/paths/auth/sing-out.yaml
+  /users/current:
+    get:
       $ref: ../swagger/paths/users/current.yaml
-
 components:
   securitySchemes:
     bearerAuth:

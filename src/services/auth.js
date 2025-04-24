@@ -20,7 +20,7 @@ export const registerUser = async (payload) => {
   return {
     user: {
       id: newUser._id.toString(),
-      username: newUser.name,
+      name: newUser.name,
       email: newUser.email,
       balance: newUser.balance,
     },
@@ -40,7 +40,7 @@ export const loginUser = async (payload) => {
   return {
     user: {
       id: user._id.toString(),
-      username: user.name,
+      name: user.name,
       email: user.email,
       balance: user.balance,
     },

@@ -1,7 +1,7 @@
 tags:
   - Users
 summary: Get current user info
-operationId: Current
+operationId: getCurrentUser
 description: Returns the currently authenticated user's information.
 security:
   - bearerAuth: []
@@ -12,25 +12,57 @@ responses:
       application/json:
         schema:
           type: object
+          required:
+            - status
+            - message
+            - data
           properties:
-            user:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: User info retrieved
+            data:
               type: object
+              required:
+                - _id
+                - name
+                - email
+                - balance
+                - createdAt
+                - updatedAt
               properties:
+                _id:
+                  type: string
+                  example: 680a48167665cacdd74a4f2e
                 name:
                   type: string
-                  example: 'Taras Shevchenko'
+                  example: Tati
                 email:
                   type: string
-                  example: Taras333@gmail.com
+                  example: test@gmail.com
                 balance:
+                  type: number
+                  example: 0
+                createdAt:
                   type: string
-                  example: '0'
+                  format: date-time
+                  example: 2025-04-24T14:17:58.211Z
+                updatedAt:
+                  type: string
+                  format: date-time
+                  example: 2025-04-24T14:37:34.453Z
+
   '401':
     description: Unauthorized - Invalid or missing token
     content:
       application/json:
         schema:
           type: object
+          required:
+            - status
+            - message
           properties:
             status:
               type: integer

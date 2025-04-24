@@ -2,31 +2,34 @@ tags:
   - Auth
 summary: Log In User
 operationId: login
-description: 'Log In with provided credentials'
+description: Log in with provided credentials
 security: []
 requestBody:
+  required: true
   content:
     application/json:
       schema:
+        type: object
         required:
           - email
           - password
         properties:
           email:
             type: string
-            example: 'Taras333@gmail.com'
+            format: email
+            example: Taras333@gmail.com
           password:
             type: string
-            example: '12345678'
-          balance:
-            type: number
-            example: '0'
+            format: password
+            example: 12345678
+
 responses:
   '200':
-    description: "Log In into user's account"
+    description: Successfully logged in user
     content:
       application/json:
         schema:
+          type: object
           required:
             - status
             - message
@@ -34,27 +37,43 @@ responses:
           properties:
             status:
               type: integer
-              example: '200'
+              example: 200
             message:
               type: string
-              example: 'Successfully logged in an user!'
+              example: Successfully logged in!
             data:
               type: object
               required:
-                - name
-                - accessToken
+                - user
+                - token
               properties:
-                name:
+                user:
+                  type: object
+                  required:
+                    - id
+                    - name
+                    - email
+                    - balance
+                  properties:
+                    id:
+                      type: string
+                      example: 680a48167665cacdd74a4f2e
+                    name:
+                      type: string
+                      example: Taras Shevchenko
+                    email:
+                      type: string
+                      example: Taras333@gmail.com
+                    balance:
+                      type: number
+                      example: 0
+                token:
                   type: string
-                  example: 'Taras Shevchenko'
-                accessToken:
-                  type: string
-                  example: 'FZ5lUcIf02vxG4jLikawUhFHm2SwUdX5J4ChyJSZQ2sUJYShhEBPmdKF3EUCHtSx'
+                  example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
   '401':
     $ref: '../../components/responses/401.yaml'
-    description: 'Unauthorized'
   '404':
     $ref: '../../components/responses/404.yaml'
-    description: 'User not found'
   '500':
     $ref: '../../components/responses/500.yaml'
