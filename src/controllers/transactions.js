@@ -8,7 +8,7 @@ import {
 
 export const createTransaction = async (req, res) => {
   const userId = req.user?._id;
-  const { comment, type, categoryId, amount, transactionDate } = req.body;
+  const { comment, type, categoryId, amount, date } = req.body;
 
   const newTransaction = await createTransactionService({
     userId,
@@ -16,7 +16,7 @@ export const createTransaction = async (req, res) => {
     type,
     categoryId,
     amount,
-    transactionDate,
+    date,
   });
 
   res.status(201).json(newTransaction);
