@@ -1,0 +1,182 @@
+tags:
+  - Transactions
+summary: Update an existing transaction by ID
+operationId: updateTransaction
+description: Update specific fields of an existing transaction record identified by its ID for the authenticated user.
+security:
+  - bearerAuth: []
+parameters:
+  - in: path
+    name: transactionId
+    required: true
+    description: ID of the transaction to update
+    schema:
+      type: string
+      example: '680bd752eed571a5f72c7ea4'
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          comment:
+            type: string
+            description: User's comment on the transaction
+            example: 'Updated comment'
+          type:
+            type: string
+            enum: [INCOME, EXPENSE]
+            description: Type of the transaction (income or expense)
+            example: 'INCOME'
+          categoryId:
+            type: string
+            description: ID of the transaction category
+            example: 'f9a3b2c1-8e4d-5a7b-9c6a-1d0e2f34g5h6'
+          amount:
+            type: number
+            format: float
+            description: Transaction amount (must be non-negative)
+            example: 100.00
+          date:
+            type: string
+            format: date-time
+            description: Date and time of the transaction (ISO 8601 format)
+            example: '2025-04-27T12:00:00Z'
+responses:
+  '200':
+    description: Successful update of the transaction
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            _id:
+              type: string
+              description: Unique ID of the updated transaction
+              example: '680bd752eed571a5f72c7ea4'
+            comment:
+              type: string
+              description: User's comment on the transaction
+              example: 'Updated comment'
+            userId:
+              type: string
+              description: ID of the user who updated the transaction
+              example: '680a48167665cacdd74a4f2e'
+            type:
+              type: string
+              enum: [INCOME, EXPENSE]
+              description: Type of the transaction (income or expense)
+              example: 'INCOME'
+            categoryId:
+              type: string
+              description: ID of the transaction category
+              example: 'f9a3b2c1-8e4d-5a7b-9c6a-1d0e2f34g5h6'
+            amount:
+              type: number
+              format: float
+              description: Transaction amount
+              example: 100.00
+            date:
+              type: string
+              format: date-time
+              description: Date and time of the transaction (ISO 8601 format)
+              example: '2025-04-27T12:00:00Z'
+            balanceAfter:
+              type: number
+              description: User's balance after the transaction
+              example: 15211.58
+            createdAt:
+              type: string
+              format: date-time
+              description: Timestamp of when the transaction was created (ISO 8601 format)
+              example: '2025-04-25T18:41:22.071Z'
+            updatedAt:
+              type: string
+              format: date-time
+              description: Timestamp of when the transaction was last updated (ISO 8601 format)
+              example: '2025-04-27T12:00:00.000Z'
+          required:
+            - _id
+            - userId
+            - type
+            - categoryId
+            - amount
+            - date
+            - balanceAfter
+            - createdAt
+            - updatedAt
+  # '400':
+  #   description: Bad Request - Invalid request body
+  #   content:
+  #     application/json:
+  #       schema:
+  #         type: object
+  #         properties:
+  #           status:
+  #             type: integer
+  #             example: 400
+  #           message:
+  #             type: string
+  #             example: 'BadRequestError'
+  #           data:
+  #             type: object
+  #             properties:
+  #               message:
+  #                 type: string
+  #                 example: 'Bad Request'
+  #               errors:
+  #                 type: array
+  #                 items:
+  #                   type: object
+  #                   properties:
+  #                     message:
+  #                       type: string
+  #                       example: '"type" must be one of [INCOME, EXPENSE]'
+  #                     path:
+  #                       type: array
+  #                       items:
+  #                         type: string
+  #                         example: 'type'
+  #                     type:
+  #                       type: string
+  #                       example: 'any.only'
+  #                     context:
+  #                       type: object
+  #                       properties:
+  #                         label:
+  #                           type: string
+  #                           example: 'type'
+  #                         key:
+  #                           type: string
+  #                           example: 'type'
+  #                         valids:
+  #                           type: array
+  #                           items:
+  #                             - 'INCOME'
+  #                             - 'EXPENSE'
+  '401':
+    $ref: '../../../components/responses/401.yaml'
+  '404':
+    description: Transaction not found or user does not have permission to update it
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: 'Transaction not found or you do not have permission to update it'
+  '500':
+    description: Internal Server Error
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: 'Error updating transaction'
+            error:
+              type: string
+              example: 'Error message from the service'
