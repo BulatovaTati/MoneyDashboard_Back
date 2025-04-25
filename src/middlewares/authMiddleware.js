@@ -1,20 +1,26 @@
 import createHttpError from 'http-errors';
 import { verifyAccessToken } from '../utils/token.js';
 
-export const isAuthenticated = (req, res, next) => {
+export const authMiddleware = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return next(
+      createHttpError(401, 'Authorization header missing or invalid'),
+    );
+  }
+
+  const token = authHeader.split(' ')[1];
+
   try {
-    const authHeader = req.headers.authorization;
-
-    if (!authHeader?.startsWith('Bearer ')) {
-      throw createHttpError(401, 'No token provided');
-    }
-
-    const token = authHeader.split(' ')[1];
-    const payload = verifyAccessToken(token);
-
-    req.userId = payload.userId;
+    const decoded = verifyAccessToken(token);
+    req.user = { _id: decoded.userId };
     next();
   } catch (err) {
-    next(createHttpError(401, 'Invalid or expired token'));
+    if (err.name === 'TokenExpiredError') {
+      return next(createHttpError(403, 'Token expired'));
+    }
+
+    return next(createHttpError(401, 'Invalid token'));
   }
 };

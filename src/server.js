@@ -10,9 +10,14 @@ import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import { swaggerDocs } from './middlewares/swaggerDocs.js';
 
-import categoriesRouter from './routers/categories.js';
+import { limiter } from './middlewares/limiter.js';
+import { TransactionCollection } from './db/models/transactions.js';
 
-const PORT = Number(getEnvVar('PORT', '8080'));
+const PORT = parseInt(getEnvVar('PORT', 3000), 10);
+
+if (isNaN(PORT)) {
+  throw new Error(`Invalid PORT value: ${getEnvVar('PORT')}`);
+}
 
 export const setupServer = async () => {
   const app = express();
@@ -35,8 +40,12 @@ export const setupServer = async () => {
     }),
   );
 
-  app.use('/api', router);
+  app.use(limiter); // захист від атак
 
+  await TransactionCollection.collection.createIndex({ userId: 1, date: 1 });
+  //  створюємо індекс -Якщо немає індексів по userId і date MongoDB буде сканувати всю колекцію (повільно), фільтрувати транзакції, і вже потім рахувати.
+
+  app.use('/api', router);
   app.use('/api-docs', swaggerDocs());
 
   app.use('*', notFoundHandler);
@@ -46,4 +55,3 @@ export const setupServer = async () => {
     console.log(`Server is running on port ${PORT}`);
   });
 };
-

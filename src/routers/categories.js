@@ -1,12 +1,10 @@
 import { Router } from 'express';
 import { getCategories } from '../controllers/categories.js';
-import { authMiddleware } from '../middlewares/authenticate.js';
+import { authMiddleware } from '../middlewares/authMiddleware.js';
+import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 
 const categoriesRouter = Router();
 
-categoriesRouter.get('/', authMiddleware, getCategories);
+categoriesRouter.get('/', authMiddleware, ctrlWrapper(getCategories));
 
 export default categoriesRouter;
-
-//moneydashboard-back.onrender.com/api/transaction-categories
-// Отримати категорії транзакцій

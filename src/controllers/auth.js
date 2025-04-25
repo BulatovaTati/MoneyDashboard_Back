@@ -1,55 +1,40 @@
 import { loginUser, registerUser } from '../services/auth.js';
+import createHttpError from 'http-errors';
 
-export const registerUserController = async (req, res) => {
-  try {
-    const user = await registerUser(req.body);
+export const registerUserController = async (req, res, next) => {
+  const user = await registerUser(req.body);
 
-    res.status(201).json({
-      status: 201,
-      message: 'Successfully registered a user!',
-      data: {
-        user: user.user,
-        token: user.token,
-      },
-    });
-  } catch (err) {
-    res.status(500).json({
-      status: 500,
-      message: 'Error registering user',
-      error: err.message,
-    });
+  if (!user) {
+    throw createHttpError(500, 'Error registering user');
   }
+
+  res.status(201).json({
+    status: 201,
+    message: 'Successfully registered a user!',
+    data: {
+      user: user.user,
+      token: user.token,
+    },
+  });
 };
 
-export const loginUserController = async (req, res) => {
-  try {
-    const session = await loginUser(req.body);
+export const loginUserController = async (req, res, next) => {
+  const session = await loginUser(req.body);
 
-    res.json({
-      status: 200,
-      message: 'Successfully logged in!',
-      data: {
-        user: session.user,
-        token: session.token,
-      },
-    });
-  } catch (err) {
-    res.status(401).json({
-      status: 401,
-      message: 'Invalid credentials',
-      error: err.message,
-    });
+  if (!session) {
+    throw createHttpError(401, 'Invalid credentials');
   }
+
+  res.status(200).json({
+    status: 200,
+    message: 'Successfully logged in!',
+    data: {
+      user: session.user,
+      token: session.token,
+    },
+  });
 };
 
-export const logoutUserController = async (req, res) => {
-  try {
-    return res.status(200).json({ message: 'Successfully logged out' });
-  } catch (err) {
-    res.status(500).json({
-      status: 500,
-      message: 'Error logging out',
-      error: err.message,
-    });
-  }
+export const logoutUserController = async (req, res, next) => {
+  return res.status(200).json({ message: 'Successfully logged out' });
 };
