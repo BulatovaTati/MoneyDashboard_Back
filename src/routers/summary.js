@@ -6,6 +6,10 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 const summaryRouter = Router();
 
 // Отримати витрати по категоріях за період
-summaryRouter.get('/', authMiddleware, ctrlWrapper(getSummaryByCategories));
+summaryRouter.get(
+  '/categories',
+  authMiddleware,
+  ctrlWrapper(getSummaryByCategories),
+);
 
 export default summaryRouter;

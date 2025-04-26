@@ -16,10 +16,6 @@ export const getSummaryByPeriod = async (req, res, next) => {
 
   const summary = await getIncomeAndExpenseSummaryByPeriod(userId, year, month);
 
-  if (!summary) {
-    throw createHttpError(404, 'No summary data found');
-  }
-
   res.status(200).json({
     status: 'success',
     data: summary,
