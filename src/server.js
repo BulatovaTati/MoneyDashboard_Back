@@ -1,8 +1,5 @@
 import express from 'express';
 import pino from 'pino-http';
-import cors from 'cors';
-import cookieParser from 'cookie-parser';
-
 import { getEnvVar } from './utils/getEnvVar.js';
 import router from './routers/index.js';
 
@@ -23,14 +20,6 @@ export const setupServer = async () => {
   const app = express();
 
   app.use(express.json());
-
-  const corsOptions = {
-    origin: ['http://localhost:5173', 'https://money-dashboard-xi.vercel.app'],
-    credentials: true,
-  };
-  app.use(cors(corsOptions));
-
-  app.use(cookieParser());
 
   app.use(
     pino({
