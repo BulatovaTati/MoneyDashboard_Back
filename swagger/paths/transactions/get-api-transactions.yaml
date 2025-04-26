@@ -13,12 +13,6 @@ responses:
         schema:
           type: object
           properties:
-            status:
-              type: integer
-              example: 200
-            message:
-              type: string
-              example: 'Success'
             data:
               type: array
               items:
@@ -79,8 +73,6 @@ responses:
                   - createdAt
                   - updatedAt
         example:
-          status: 200
-          message: 'Success'
           data:
             - _id: '680bd752eed571a5f72c7ea4'
               comment: 'Cleaning supplies'

@@ -12,10 +12,6 @@ requestBody:
       schema:
         type: object
         properties:
-          comment:
-            type: string
-            description: User's comment on the transaction
-            example: 'Lunch with colleagues'
           type:
             type: string
             enum: [INCOME, EXPENSE]
@@ -30,16 +26,21 @@ requestBody:
             format: float
             description: Transaction amount (must be non-negative)
             example: 25.50
-          transactionDate:
+          date:
             type: string
             format: date-time
             description: Date and time of the transaction (ISO 8601 format)
             example: '2025-04-26T10:00:00Z'
+          comment:
+            type: string
+            description: User's comment on the transaction
+            example: 'Lunch with colleagues'
         required:
           - type
           - categoryId
           - amount
-          - transactionDate
+          - date
+          - comment
 responses:
   '201':
     description: Successful creation of a new transaction

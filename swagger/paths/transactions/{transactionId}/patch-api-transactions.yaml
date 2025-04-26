@@ -43,6 +43,12 @@ requestBody:
             format: date-time
             description: Date and time of the transaction (ISO 8601 format)
             example: '2025-04-27T12:00:00Z'
+        required:
+          - type
+          - categoryId
+          - amount
+          - date
+          - comment
 responses:
   '200':
     description: Successful update of the transaction
