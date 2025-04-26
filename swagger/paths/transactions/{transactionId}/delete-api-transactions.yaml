@@ -1,0 +1,43 @@
+tags:
+  - Transactions
+summary: Delete a transaction by ID
+operationId: deleteTransaction
+description: Delete a specific transaction record by its ID for the authenticated user.
+security:
+  - bearerAuth: []
+parameters:
+  - in: path
+    name: transactionId
+    required: true
+    description: ID of the transaction to delete
+    schema:
+      type: string
+      example: '680bd752eed571a5f72c7ea4'
+responses:
+  '204':
+    description: Successful deletion - No content is returned
+  '401':
+    $ref: '../../../components/responses/401.yaml'
+  '404':
+    description: Transaction not found or user does not have permission to delete it
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: 'Transaction not found or you do not have permission to delete it'
+  '500':
+    description: Internal Server Error
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: 'Error deleting transaction'
+            error:
+              type: string
+              example: 'Error message from the service'

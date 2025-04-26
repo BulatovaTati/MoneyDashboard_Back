@@ -32,6 +32,16 @@ paths:
   /api/transaction-categories:
     get:
       $ref: ../swagger/paths/categories/api-transaction-categories.yaml
+  /api/transactions:
+    get:
+      $ref: ../swagger/paths/transactions/get-api-transactions.yaml
+    post:
+      $ref: ../swagger/paths/transactions/post-api-transactions.yaml
+  /api/transactions/{transactionId}:
+    patch:
+      $ref: ../swagger/paths/transactions/{transactionId}/patch-api-transactions.yaml
+    delete:
+      $ref: ../swagger/paths/transactions/{transactionId}/delete-api-transactions.yaml
 components:
   securitySchemes:
     bearerAuth:
