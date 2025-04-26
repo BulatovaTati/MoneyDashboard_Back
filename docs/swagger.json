@@ -29,7 +29,7 @@
     }
   ],
   "paths": {
-    "/auth/sing-up": {
+    "/api/auth/sing-up": {
       "post": {
         "tags": [
           "Auth"
@@ -54,15 +54,14 @@
                   },
                   "email": {
                     "type": "string",
+                    "format": "email",
                     "example": "Taras333@gmail.com"
                   },
                   "password": {
                     "type": "string",
+                    "minLength": 8,
+                    "maxLength": 64,
                     "example": "12345678"
-                  },
-                  "balance": {
-                    "type": "number",
-                    "example": "0"
                   }
                 }
               }
@@ -140,7 +139,7 @@
         }
       }
     },
-    "/auth/sing-in": {
+    "/api/auth/sing-in": {
       "post": {
         "tags": [
           "Auth"
@@ -253,7 +252,7 @@
         }
       }
     },
-    "/auth/sing-out": {
+    "/api/auth/sing-out": {
       "post": {
         "tags": [
           "Auth"
@@ -276,7 +275,7 @@
         }
       }
     },
-    "/users/current": {
+    "/api/users/current": {
       "get": {
         "tags": [
           "Users"

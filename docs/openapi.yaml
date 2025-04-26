@@ -17,16 +17,16 @@ servers:
   - url: https://moneydashboard-back.onrender.com
 
 paths:
-  /auth/sing-up:
+  /api/auth/sing-up:
     post:
       $ref: ../swagger/paths/auth/sing-up.yaml
-  /auth/sing-in:
+  /api/auth/sing-in:
     post:
       $ref: ../swagger/paths/auth/sing-in.yaml
-  /auth/sing-out:
+  /api/auth/sing-out:
     post:
       $ref: ../swagger/paths/auth/sing-out.yaml
-  /users/current:
+  /api/users/current:
     get:
       $ref: ../swagger/paths/users/current.yaml
   /api/transaction-categories:

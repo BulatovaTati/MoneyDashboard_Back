@@ -18,13 +18,14 @@ requestBody:
             example: 'Taras Shevchenko'
           email:
             type: string
+            format: email
             example: 'Taras333@gmail.com'
           password:
             type: string
+            minLength: 8
+            maxLength: 64
             example: '12345678'
-          balance:
-            type: number
-            example: '0'
+
 responses:
   '201':
     description: 'User registration'
