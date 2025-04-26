@@ -1,5 +1,6 @@
 import express from 'express';
 import pino from 'pino-http';
+import cors from 'cors';
 import { getEnvVar } from './utils/getEnvVar.js';
 import router from './routers/index.js';
 
@@ -10,16 +11,18 @@ import { swaggerDocs } from './middlewares/swaggerDocs.js';
 import { limiter } from './middlewares/limiter.js';
 import { TransactionCollection } from './db/models/transactions.js';
 
-const PORT = parseInt(getEnvVar('PORT', 3000), 10);
-
-if (isNaN(PORT)) {
-  throw new Error(`Invalid PORT value: ${getEnvVar('PORT')}`);
-}
+const PORT = Number(getEnvVar('PORT', '8080'));
 
 export const setupServer = async () => {
   const app = express();
 
   app.use(express.json());
+
+  const corsOptions = {
+    origin: ['http://localhost:5173', 'https://money-dashboard-xi.vercel.app'],
+    credentials: true,
+  };
+  app.use(cors(corsOptions));
 
   app.use(
     pino({
