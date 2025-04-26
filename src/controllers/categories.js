@@ -1,10 +1,16 @@
 import getCategoriesService from '../services/categories.js';
+import createHttpError from 'http-errors';
 
 export const getCategories = async (req, res, next) => {
-  try {
-    const categories = await getCategoriesService();
-    res.json(categories);
-  } catch (error) {
-    next(error);
+  const categories = await getCategoriesService();
+
+  if (!categories || categories.length === 0) {
+    throw createHttpError(404, 'No categories found');
   }
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Categories retrieved',
+    data: categories,
+  });
 };
