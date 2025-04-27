@@ -105,61 +105,8 @@ responses:
             - createdAt
             - updatedAt
   '400':
-    description: Bad Request - Invalid request body
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            status:
-              type: integer
-              example: 400
-            message:
-              type: string
-              example: 'BadRequestError'
-            data:
-              type: object
-              properties:
-                message:
-                  type: string
-                  example: 'Bad Request'
-                errors:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      message:
-                        type: string
-                        example: '"type" is required'
-                      path:
-                        type: array
-                        items:
-                          type: string
-                          example: 'type'
-                      type:
-                        type: string
-                        example: 'any.required'
-                      context:
-                        type: object
-                        properties:
-                          label:
-                            type: string
-                            example: 'type'
-                          key:
-                            type: string
-                            example: 'type'
+    $ref: '../../components/responses/400.yaml'
   '401':
     $ref: '../../components/responses/401.yaml'
   '500':
-    description: Internal Server Error
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            message:
-              type: string
-              example: 'Error creating transaction'
-            error:
-              type: string
-              example: 'Error message from the service'
+    $ref: '../../components/responses/500.yaml'

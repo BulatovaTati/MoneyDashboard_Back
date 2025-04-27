@@ -29,15 +29,4 @@ responses:
               type: string
               example: 'Transaction not found or you do not have permission to delete it'
   '500':
-    description: Internal Server Error
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            message:
-              type: string
-              example: 'Error deleting transaction'
-            error:
-              type: string
-              example: 'Error message from the service'
+    $ref: '../../../components/responses/500.yaml'
