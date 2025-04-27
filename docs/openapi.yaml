@@ -15,18 +15,17 @@ tags:
     description: Auth operations.
 servers:
   - url: https://moneydashboard-back.onrender.com
-
 paths:
-  /auth/sing-up:
+  /api/auth/sign-up:
     post:
-      $ref: ../swagger/paths/auth/sing-up.yaml
-  /auth/sing-in:
+      $ref: ../swagger/paths/auth/sign-up.yaml
+  /api/auth/sign-in:
     post:
-      $ref: ../swagger/paths/auth/sing-in.yaml
-  /auth/sing-out:
+      $ref: ../swagger/paths/auth/sign-in.yaml
+  /api/auth/sign-out:
     post:
-      $ref: ../swagger/paths/auth/sing-out.yaml
-  /users/current:
+      $ref: ../swagger/paths/auth/sign-out.yaml
+  /api/users/current:
     get:
       $ref: ../swagger/paths/users/current.yaml
   /api/transaction-categories:

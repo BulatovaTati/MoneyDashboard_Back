@@ -87,15 +87,4 @@ responses:
   '401':
     $ref: ../../components/responses/401.yaml
   '500':
-    description: Internal Server Error
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            message:
-              type: string
-              example: 'Error fetching transactions'
-            error:
-              type: string
-              example: 'Error message from the service'
+    $ref: '../../components/responses/500.yaml'

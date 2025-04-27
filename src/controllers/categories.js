@@ -9,7 +9,7 @@ export const getCategories = async (req, res, next) => {
   }
 
   res.status(200).json({
-    status: 'success',
+    status: 200,
     message: 'Categories retrieved',
     data: categories,
   });

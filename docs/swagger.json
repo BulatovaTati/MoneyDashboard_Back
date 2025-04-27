@@ -29,7 +29,7 @@
     }
   ],
   "paths": {
-    "/auth/sing-up": {
+    "/api/auth/sign-up": {
       "post": {
         "tags": [
           "Auth"
@@ -54,15 +54,14 @@
                   },
                   "email": {
                     "type": "string",
+                    "format": "email",
                     "example": "Taras333@gmail.com"
                   },
                   "password": {
                     "type": "string",
+                    "minLength": 8,
+                    "maxLength": 64,
                     "example": "12345678"
-                  },
-                  "balance": {
-                    "type": "number",
-                    "example": "0"
                   }
                 }
               }
@@ -98,41 +97,7 @@
             }
           },
           "409": {
-            "description": "Conflict Error",
-            "content": {
-              "application\\json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "status",
-                    "message",
-                    "data"
-                  ],
-                  "properties": {
-                    "status": {
-                      "type": "integer",
-                      "example": 409
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "ConflictError"
-                    },
-                    "data": {
-                      "type": "object",
-                      "required": [
-                        "message"
-                      ],
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Email in use"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/409"
           },
           "500": {
             "$ref": "#/components/responses/500"
@@ -140,7 +105,7 @@
         }
       }
     },
-    "/auth/sing-in": {
+    "/api/auth/sign-in": {
       "post": {
         "tags": [
           "Auth"
@@ -253,7 +218,7 @@
         }
       }
     },
-    "/auth/sing-out": {
+    "/api/auth/sign-out": {
       "post": {
         "tags": [
           "Auth"
@@ -276,7 +241,7 @@
         }
       }
     },
-    "/users/current": {
+    "/api/users/current": {
       "get": {
         "tags": [
           "Users"
@@ -387,7 +352,7 @@
           "Categories"
         ],
         "summary": "Get list of transaction categories",
-        "description": "Get list of transaction categories",
+        "description": "Retrieve a list of transaction categories available for users.",
         "operationId": "getCategoriesService",
         "security": [
           {
@@ -396,97 +361,119 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful response with an array of transaction categories",
+            "description": "Successful response with a wrapped object containing status, message, and data array",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string",
-                        "description": "Unique category ID"
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "Category name"
-                      },
-                      "type": {
-                        "type": "string",
-                        "enum": [
-                          "EXPENSE",
-                          "INCOME"
-                        ],
-                        "description": "Category type (expense or income)"
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Categories retrieved",
+                      "description": "Response message"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "List of transaction categories",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "Unique identifier of the category"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the transaction category"
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "EXPENSE",
+                              "INCOME"
+                            ],
+                            "description": "Type of the transaction category (either EXPENSE or INCOME)"
+                          }
+                        }
                       }
                     }
                   }
                 },
-                "example": [
-                  {
-                    "id": "c9d9e447-1b83-4238-8712-edc77b18b739",
-                    "name": "Main expenses",
-                    "type": "EXPENSE"
-                  },
-                  {
-                    "id": "27eb4b75-9a42-4991-a802-4aefe21ac3ce",
-                    "name": "Products",
-                    "type": "EXPENSE"
-                  },
-                  {
-                    "id": "3caa7ba0-79c0-40b9-ae1f-de1af1f6e386",
-                    "name": "Car",
-                    "type": "EXPENSE"
-                  },
-                  {
-                    "id": "bbdd58b8-e804-4ab9-bf4f-695da5ef64f4",
-                    "name": "Self care",
-                    "type": "EXPENSE"
-                  },
-                  {
-                    "id": "76cc875a-3b43-4eae-8fdb-f76633821a34",
-                    "name": "Child care",
-                    "type": "EXPENSE"
-                  },
-                  {
-                    "id": "128673b5-2f9a-46ae-a428-ec48cf1effa1",
-                    "name": "Household products",
-                    "type": "EXPENSE"
-                  },
-                  {
-                    "id": "1272fcc4-d59f-462d-ad33-a85a075e5581",
-                    "name": "Education",
-                    "type": "EXPENSE"
-                  },
-                  {
-                    "id": "c143130f-7d1e-4011-90a4-54766d4e308e",
-                    "name": "Leisure",
-                    "type": "EXPENSE"
-                  },
-                  {
-                    "id": "719626f1-9d23-4e99-84f5-289024e437a8",
-                    "name": "Other expenses",
-                    "type": "EXPENSE"
-                  },
-                  {
-                    "id": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
-                    "name": "Entertainment",
-                    "type": "EXPENSE"
-                  },
-                  {
-                    "id": "063f1132-ba5d-42b4-951d-44011ca46262",
-                    "name": "Income",
-                    "type": "INCOME"
-                  }
-                ]
+                "example": {
+                  "status": 200,
+                  "message": "Categories retrieved",
+                  "data": [
+                    {
+                      "id": "c9d9e447-1b83-4238-8712-edc77b18b739",
+                      "name": "Main expenses",
+                      "type": "EXPENSE"
+                    },
+                    {
+                      "id": "27eb4b75-9a42-4991-a802-4aefe21ac3ce",
+                      "name": "Products",
+                      "type": "EXPENSE"
+                    },
+                    {
+                      "id": "3caa7ba0-79c0-40b9-ae1f-de1af1f6e386",
+                      "name": "Car",
+                      "type": "EXPENSE"
+                    },
+                    {
+                      "id": "bbdd58b8-e804-4ab9-bf4f-695da5ef64f4",
+                      "name": "Self care",
+                      "type": "EXPENSE"
+                    },
+                    {
+                      "id": "76cc875a-3b43-4eae-8fdb-f76633821a34",
+                      "name": "Child care",
+                      "type": "EXPENSE"
+                    },
+                    {
+                      "id": "128673b5-2f9a-46ae-a428-ec48cf1effa1",
+                      "name": "Household products",
+                      "type": "EXPENSE"
+                    },
+                    {
+                      "id": "1272fcc4-d59f-462d-ad33-a85a075e5581",
+                      "name": "Education",
+                      "type": "EXPENSE"
+                    },
+                    {
+                      "id": "c143130f-7d1e-4011-90a4-54766d4e308e",
+                      "name": "Leisure",
+                      "type": "EXPENSE"
+                    },
+                    {
+                      "id": "719626f1-9d23-4e99-84f5-289024e437a8",
+                      "name": "Other expenses",
+                      "type": "EXPENSE"
+                    },
+                    {
+                      "id": "3acd0ecd-5295-4d54-8e7c-d3908f4d0402",
+                      "name": "Entertainment",
+                      "type": "EXPENSE"
+                    },
+                    {
+                      "id": "063f1132-ba5d-42b4-951d-44011ca46262",
+                      "name": "Income",
+                      "type": "INCOME"
+                    }
+                  ]
+                }
               }
             }
           },
           "401": {
+            "description": "Unauthorized - Authentication credentials were missing or incorrect",
             "$ref": "#/components/responses/401"
           },
           "500": {
+            "description": "Internal Server Error - Something went wrong on the server side",
             "$ref": "#/components/responses/500"
           }
         }
@@ -614,24 +601,7 @@
             "$ref": "#/components/responses/401"
           },
           "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Error fetching transactions"
-                    },
-                    "error": {
-                      "type": "string",
-                      "example": "Error message from the service"
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/500"
           }
         }
       },
@@ -780,92 +750,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid request body",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "integer",
-                      "example": 400
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "BadRequestError"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Bad Request"
-                        },
-                        "errors": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "message": {
-                                "type": "string",
-                                "example": "\"type\" is required"
-                              },
-                              "path": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string",
-                                  "example": "type"
-                                }
-                              },
-                              "type": {
-                                "type": "string",
-                                "example": "any.required"
-                              },
-                              "context": {
-                                "type": "object",
-                                "properties": {
-                                  "label": {
-                                    "type": "string",
-                                    "example": "type"
-                                  },
-                                  "key": {
-                                    "type": "string",
-                                    "example": "type"
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/400"
           },
           "401": {
             "$ref": "#/components/responses/401"
           },
           "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Error creating transaction"
-                    },
-                    "error": {
-                      "type": "string",
-                      "example": "Error message from the service"
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/500"
           }
         }
       }
@@ -1017,6 +908,7 @@
                     "userId",
                     "type",
                     "categoryId",
+                    "comment",
                     "amount",
                     "date",
                     "balanceAfter",
@@ -1026,6 +918,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           },
           "401": {
             "$ref": "#/components/responses/401"
@@ -1047,24 +942,7 @@
             }
           },
           "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Error updating transaction"
-                    },
-                    "error": {
-                      "type": "string",
-                      "example": "Error message from the service"
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/500"
           }
         }
       },
@@ -1116,24 +994,7 @@
             }
           },
           "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Error deleting transaction"
-                    },
-                    "error": {
-                      "type": "string",
-                      "example": "Error message from the service"
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/500"
           }
         }
       }
@@ -1176,13 +1037,96 @@
             "example": "12345678"
           },
           "balance": {
-            "type": "number",
-            "default": "0,"
+            "type": "number"
           }
         }
       }
     },
     "responses": {
+      "400": {
+        "description": "Bad Request - Invalid request body",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "status",
+                "message",
+                "data"
+              ],
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "message": {
+                  "type": "string",
+                  "example": "BadRequestError"
+                },
+                "data": {
+                  "type": "object",
+                  "required": [
+                    "message",
+                    "errors"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Bad Request"
+                    },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "message",
+                          "path",
+                          "type",
+                          "context"
+                        ],
+                        "properties": {
+                          "message": {
+                            "type": "string",
+                            "example": "\"type\" is required"
+                          },
+                          "path": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "example": "type"
+                            }
+                          },
+                          "type": {
+                            "type": "string",
+                            "example": "any.required"
+                          },
+                          "context": {
+                            "type": "object",
+                            "required": [
+                              "label",
+                              "key"
+                            ],
+                            "properties": {
+                              "label": {
+                                "type": "string",
+                                "example": "type"
+                              },
+                              "key": {
+                                "type": "string",
+                                "example": "type"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "401": {
         "description": "Unauthorized error",
         "content": {
@@ -1249,6 +1193,43 @@
                     "message": {
                       "type": "string",
                       "example": "Not Found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "409": {
+        "description": "Conflict Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "status",
+                "message",
+                "data"
+              ],
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 409
+                },
+                "message": {
+                  "type": "string",
+                  "example": "ConflictError"
+                },
+                "data": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Email in use"
                     }
                   }
                 }
