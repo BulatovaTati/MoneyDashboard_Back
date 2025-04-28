@@ -1,0 +1,31 @@
+type: object
+properties:
+  type:
+    type: string
+    enum: [INCOME, EXPENSE]
+    description: Type of the transaction (income or expense)
+    example: 'EXPENSE'
+  categoryId:
+    type: string
+    description: ID of the transaction category
+    example: 'c143130f-7d1e-4011-90a4-54766d4e308e'
+  amount:
+    type: number
+    format: float
+    description: Transaction amount (must be non-negative)
+    example: 25.50
+  date:
+    type: string
+    format: date-time
+    description: Date and time of the transaction (ISO 8601 format)
+    example: '2025-04-26T10:00:00Z'
+  comment:
+    type: string
+    description: User's comment on the transaction
+    example: 'Lunch with colleagues'
+required:
+  - type
+  - categoryId
+  - amount
+  - date
+  - comment

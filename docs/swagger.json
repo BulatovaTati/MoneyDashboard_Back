@@ -498,101 +498,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "_id": {
-                            "type": "string",
-                            "description": "Unique ID of the transaction",
-                            "example": "680bd752eed571a5f72c7ea4"
-                          },
-                          "comment": {
-                            "type": "string",
-                            "description": "User's comment on the transaction",
-                            "example": "Cleaning supplies"
-                          },
-                          "userId": {
-                            "type": "string",
-                            "description": "ID of the user who created the transaction",
-                            "example": "680a48167665cacdd74a4f2e"
-                          },
-                          "type": {
-                            "type": "string",
-                            "enum": [
-                              "EXPENSE",
-                              "INCOME"
-                            ],
-                            "description": "Type of the transaction (expense or income)",
-                            "example": "EXPENSE"
-                          },
-                          "categoryId": {
-                            "type": "string",
-                            "description": "ID of the transaction category",
-                            "example": "c143130f-7d1e-4011-90a4-54766d4e308e"
-                          },
-                          "amount": {
-                            "type": "number",
-                            "description": "Transaction amount",
-                            "example": 194.01
-                          },
-                          "date": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Date and time of the transaction (ISO 8601 format)",
-                            "example": "2025-04-25T18:41:22.070Z"
-                          },
-                          "balanceAfter": {
-                            "type": "number",
-                            "description": "User's balance after the transaction",
-                            "example": 15111.579999999998
-                          },
-                          "createdAt": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Timestamp of when the transaction was created (ISO 8601 format)",
-                            "example": "2025-04-25T18:41:22.071Z"
-                          },
-                          "updatedAt": {
-                            "type": "string",
-                            "format": "date-time",
-                            "description": "Timestamp of when the transaction was last updated (ISO 8601 format)",
-                            "example": "2025-04-25T18:41:22.071Z"
-                          }
-                        },
-                        "required": [
-                          "_id",
-                          "userId",
-                          "type",
-                          "categoryId",
-                          "amount",
-                          "date",
-                          "balanceAfter",
-                          "createdAt",
-                          "updatedAt"
-                        ]
-                      }
-                    }
-                  }
-                },
-                "example": {
-                  "data": [
-                    {
-                      "_id": "680bd752eed571a5f72c7ea4",
-                      "comment": "Cleaning supplies",
-                      "userId": "680a48167665cacdd74a4f2e",
-                      "type": "EXPENSE",
-                      "categoryId": "c143130f-7d1e-4011-90a4-54766d4e308e",
-                      "amount": 194.01,
-                      "date": "2025-04-25T18:41:22.070Z",
-                      "balanceAfter": 15111.579999999998,
-                      "createdAt": "2025-04-25T18:41:22.071Z",
-                      "updatedAt": "2025-04-25T18:41:22.071Z"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/transactionsList"
                 }
               }
             }
@@ -622,47 +528,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "enum": [
-                      "INCOME",
-                      "EXPENSE"
-                    ],
-                    "description": "Type of the transaction (income or expense)",
-                    "example": "EXPENSE"
-                  },
-                  "categoryId": {
-                    "type": "string",
-                    "description": "ID of the transaction category",
-                    "example": "c143130f-7d1e-4011-90a4-54766d4e308e"
-                  },
-                  "amount": {
-                    "type": "number",
-                    "format": "float",
-                    "description": "Transaction amount (must be non-negative)",
-                    "example": 25.5
-                  },
-                  "date": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Date and time of the transaction (ISO 8601 format)",
-                    "example": "2025-04-26T10:00:00Z"
-                  },
-                  "comment": {
-                    "type": "string",
-                    "description": "User's comment on the transaction",
-                    "example": "Lunch with colleagues"
-                  }
-                },
-                "required": [
-                  "type",
-                  "categoryId",
-                  "amount",
-                  "date",
-                  "comment"
-                ]
+                "$ref": "#/components/schemas/createTransactionRequest"
               }
             }
           }
@@ -673,78 +539,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "_id": {
-                      "type": "string",
-                      "description": "Unique ID of the newly created transaction",
-                      "example": "680c1a22f1e8d9b3a2c5f6e7"
-                    },
-                    "comment": {
-                      "type": "string",
-                      "description": "User's comment on the transaction",
-                      "example": "Lunch with colleagues"
-                    },
-                    "userId": {
-                      "type": "string",
-                      "description": "ID of the user who created the transaction",
-                      "example": "680a48167665cacdd74a4f2e"
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "EXPENSE",
-                        "INCOME"
-                      ],
-                      "description": "Type of the transaction (expense or income)",
-                      "example": "EXPENSE"
-                    },
-                    "categoryId": {
-                      "type": "string",
-                      "description": "ID of the transaction category",
-                      "example": "c143130f-7d1e-4011-90a4-54766d4e308e"
-                    },
-                    "amount": {
-                      "type": "number",
-                      "format": "float",
-                      "description": "Transaction amount",
-                      "example": 25.5
-                    },
-                    "date": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Date and time of the transaction (ISO 8601 format)",
-                      "example": "2025-04-26T10:00:00Z"
-                    },
-                    "balanceAfter": {
-                      "type": "number",
-                      "description": "User's balance after the transaction",
-                      "example": 15086.08
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Timestamp of when the transaction was created (ISO 8601 format)",
-                      "example": "2025-04-26T10:00:00.000Z"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Timestamp of when the transaction was last updated (ISO 8601 format)",
-                      "example": "2025-04-26T10:00:00.000Z"
-                    }
-                  },
-                  "required": [
-                    "_id",
-                    "userId",
-                    "type",
-                    "categoryId",
-                    "amount",
-                    "date",
-                    "balanceAfter",
-                    "createdAt",
-                    "updatedAt"
-                  ]
+                  "$ref": "#/components/schemas/createTransactionResponse"
                 }
               }
             }
@@ -1040,6 +835,204 @@
             "type": "number"
           }
         }
+      },
+      "transactionsList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "description": "Unique ID of the transaction",
+                  "example": "680bd752eed571a5f72c7ea4"
+                },
+                "comment": {
+                  "type": "string",
+                  "description": "User's comment on the transaction",
+                  "example": "Cleaning supplies"
+                },
+                "userId": {
+                  "type": "string",
+                  "description": "ID of the user who created the transaction",
+                  "example": "680a48167665cacdd74a4f2e"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "EXPENSE",
+                    "INCOME"
+                  ],
+                  "description": "Type of the transaction (expense or income)",
+                  "example": "EXPENSE"
+                },
+                "categoryId": {
+                  "type": "string",
+                  "description": "ID of the transaction category",
+                  "example": "c143130f-7d1e-4011-90a4-54766d4e308e"
+                },
+                "amount": {
+                  "type": "number",
+                  "description": "Transaction amount",
+                  "example": 194.01
+                },
+                "date": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Date and time of the transaction (ISO 8601 format)",
+                  "example": "2025-04-25T18:41:22.070Z"
+                },
+                "balanceAfter": {
+                  "type": "number",
+                  "description": "User's balance after the transaction",
+                  "example": 15111.579999999998
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp of when the transaction was created (ISO 8601 format)",
+                  "example": "2025-04-25T18:41:22.071Z"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "Timestamp of when the transaction was last updated (ISO 8601 format)",
+                  "example": "2025-04-25T18:41:22.071Z"
+                }
+              },
+              "required": [
+                "_id",
+                "userId",
+                "type",
+                "categoryId",
+                "amount",
+                "date",
+                "balanceAfter",
+                "createdAt",
+                "updatedAt"
+              ]
+            }
+          }
+        }
+      },
+      "createTransactionRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "INCOME",
+              "EXPENSE"
+            ],
+            "description": "Type of the transaction (income or expense)",
+            "example": "EXPENSE"
+          },
+          "categoryId": {
+            "type": "string",
+            "description": "ID of the transaction category",
+            "example": "c143130f-7d1e-4011-90a4-54766d4e308e"
+          },
+          "amount": {
+            "type": "number",
+            "format": "float",
+            "description": "Transaction amount (must be non-negative)",
+            "example": 25.5
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time of the transaction (ISO 8601 format)",
+            "example": "2025-04-26T10:00:00Z"
+          },
+          "comment": {
+            "type": "string",
+            "description": "User's comment on the transaction",
+            "example": "Lunch with colleagues"
+          }
+        },
+        "required": [
+          "type",
+          "categoryId",
+          "amount",
+          "date",
+          "comment"
+        ]
+      },
+      "createTransactionResponse": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "Unique ID of the newly created transaction",
+            "example": "680c1a22f1e8d9b3a2c5f6e7"
+          },
+          "comment": {
+            "type": "string",
+            "description": "User's comment on the transaction",
+            "example": "Lunch with colleagues"
+          },
+          "userId": {
+            "type": "string",
+            "description": "ID of the user who created the transaction",
+            "example": "680a48167665cacdd74a4f2e"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "EXPENSE",
+              "INCOME"
+            ],
+            "description": "Type of the transaction (expense or income)",
+            "example": "EXPENSE"
+          },
+          "categoryId": {
+            "type": "string",
+            "description": "ID of the transaction category",
+            "example": "c143130f-7d1e-4011-90a4-54766d4e308e"
+          },
+          "amount": {
+            "type": "number",
+            "format": "float",
+            "description": "Transaction amount",
+            "example": 25.5
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time of the transaction (ISO 8601 format)",
+            "example": "2025-04-26T10:00:00Z"
+          },
+          "balanceAfter": {
+            "type": "number",
+            "description": "User's balance after the transaction",
+            "example": 15086.08
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of when the transaction was created (ISO 8601 format)",
+            "example": "2025-04-26T10:00:00.000Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of when the transaction was last updated (ISO 8601 format)",
+            "example": "2025-04-26T10:00:00.000Z"
+          }
+        },
+        "required": [
+          "_id",
+          "userId",
+          "type",
+          "categoryId",
+          "amount",
+          "date",
+          "balanceAfter",
+          "createdAt",
+          "updatedAt"
+        ]
       }
     },
     "responses": {
