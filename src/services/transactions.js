@@ -14,7 +14,6 @@ export const createTransactionService = async (transactionData) => {
     const newTransaction = new TransactionCollection({
       ...transactionData,
       balanceAfter: updatedBalance,
-      date: new Date(),
     });
 
     await newTransaction.save();
