@@ -41,6 +41,12 @@ paths:
       $ref: ../swagger/paths/transactions/{transactionId}/patch-api-transactions.yaml
     delete:
       $ref: ../swagger/paths/transactions/{transactionId}/delete-api-transactions.yaml
+  /api/transactions-summary/categories:
+    get:
+      $ref: ../swagger/paths/summary/transactions-summary-categories.yaml
+  /api/transactions-summary-by-period:
+    get:
+      $ref: ../swagger/paths/summary/transactions-summary-by-period.yaml
 components:
   securitySchemes:
     bearerAuth:

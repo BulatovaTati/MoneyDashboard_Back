@@ -793,6 +793,237 @@
           }
         }
       }
+    },
+    "/api/transactions-summary/categories": {
+      "get": {
+        "tags": [
+          "Transactions Summary"
+        ],
+        "summary": "Get expense summary by categories",
+        "operationId": "getSummaryByCategories",
+        "description": "Retrieve a summary of user's expenses grouped by categories for a specific year and optional month.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "year",
+            "required": true,
+            "description": "The year for which to retrieve the expense summary.",
+            "schema": {
+              "type": "integer",
+              "example": 2025
+            }
+          },
+          {
+            "in": "query",
+            "name": "month",
+            "required": false,
+            "description": "The month (1-12) for which to retrieve the expense summary. If omitted, the summary is calculated for the entire year.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12,
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of the expense summary by categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "message",
+                    "data"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Summary retrieved successfully"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "category",
+                          "total"
+                        ],
+                        "properties": {
+                          "category": {
+                            "type": "string",
+                            "description": "Name of the expense category",
+                            "example": "Products"
+                          },
+                          "total": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "Total expenses for the category",
+                            "example": 232
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing required parameter 'year'",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Missing required parameter: year"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "description": "No summary data found for the provided parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "No data found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
+    },
+    "/api/transactions-summary-by-period": {
+      "get": {
+        "tags": [
+          "Transactions Summary"
+        ],
+        "summary": "Get income and expense summary by period",
+        "operationId": "getSummaryByPeriod",
+        "description": "Retrieve a summary of user's income and expenses for a specific year and optional month.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "year",
+            "required": true,
+            "description": "The year for which to retrieve the summary.",
+            "schema": {
+              "type": "integer",
+              "example": 2025
+            }
+          },
+          {
+            "in": "query",
+            "name": "month",
+            "required": false,
+            "description": "The month (1-12) for which to retrieve the summary. If omitted, the summary is calculated for the entire year.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12,
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful retrieval of the income and expense summary",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status",
+                    "data"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "incomeSummaryByPeriod",
+                        "expenseSummaryByPeriod"
+                      ],
+                      "properties": {
+                        "incomeSummaryByPeriod": {
+                          "type": "number",
+                          "format": "float",
+                          "description": "Total income for the specified period",
+                          "example": 20200
+                        },
+                        "expenseSummaryByPeriod": {
+                          "type": "number",
+                          "format": "float",
+                          "description": "Total expenses for the specified period",
+                          "example": 14210
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing required parameter 'year'",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Year is required"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        }
+      }
     }
   },
   "components": {

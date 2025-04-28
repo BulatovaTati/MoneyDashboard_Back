@@ -1,0 +1,68 @@
+tags:
+  - Transactions Summary
+summary: Get income and expense summary by period
+operationId: getSummaryByPeriod
+description: Retrieve a summary of user's income and expenses for a specific year and optional month.
+security:
+  - bearerAuth: []
+parameters:
+  - in: query
+    name: year
+    required: true
+    description: The year for which to retrieve the summary.
+    schema:
+      type: integer
+      example: 2025
+  - in: query
+    name: month
+    required: false
+    description: The month (1-12) for which to retrieve the summary. If omitted, the summary is calculated for the entire year.
+    schema:
+      type: integer
+      minimum: 1
+      maximum: 12
+      example: 3
+responses:
+  '200':
+    description: Successful retrieval of the income and expense summary
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - data
+          properties:
+            status:
+              type: string
+              example: success
+            data:
+              type: object
+              required:
+                - incomeSummaryByPeriod
+                - expenseSummaryByPeriod
+              properties:
+                incomeSummaryByPeriod:
+                  type: number
+                  format: float
+                  description: Total income for the specified period
+                  example: 20200
+                expenseSummaryByPeriod:
+                  type: number
+                  format: float
+                  description: Total expenses for the specified period
+                  example: 14210
+  '400':
+    description: Missing required parameter 'year'
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: Year is required
+  '401':
+    $ref: ../../components/responses/401.yaml
+  '500':
+    $ref: ../../components/responses/500.yaml
