@@ -11,10 +11,6 @@ export const getSummaryByCategories = async (req, res, next) => {
 
   const data = await getExpenseSummaryByCategories(userId, year, month);
 
-  if (!data || data.length === 0) {
-    throw createHttpError(404, 'No data found');
-  }
-
   res.status(200).json({
     status: 'success',
     message: 'Summary retrieved successfully',
