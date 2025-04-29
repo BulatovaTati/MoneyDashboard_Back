@@ -14,5 +14,7 @@ responses:
           $ref: '../../components/schemas/transactionsList.yaml'
   '401':
     $ref: ../../components/responses/401.yaml
+  '429':
+    $ref: '../../components/responses/429.yaml'
   '500':
     $ref: '../../components/responses/500.yaml'

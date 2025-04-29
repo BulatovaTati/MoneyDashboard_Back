@@ -79,6 +79,8 @@ responses:
   '401':
     description: Unauthorized - Authentication credentials were missing or incorrect
     $ref: '../../components/responses/401.yaml'
+  '429':
+    $ref: '../../components/responses/429.yaml'
   '500':
     description: Internal Server Error - Something went wrong on the server side
     $ref: '../../components/responses/500.yaml'

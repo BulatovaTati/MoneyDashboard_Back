@@ -16,15 +16,15 @@ tags:
 servers:
   - url: https://moneydashboard-back.onrender.com
 paths:
-  /api/auth/sign-up:
+  /api/auth/register:
     post:
-      $ref: ../swagger/paths/auth/sign-up.yaml
-  /api/auth/sign-in:
+      $ref: ../swagger/paths/auth/register.yaml
+  /api/auth/login:
     post:
-      $ref: ../swagger/paths/auth/sign-in.yaml
-  /api/auth/sign-out:
+      $ref: ../swagger/paths/auth/login.yaml
+  /api/auth/logout:
     post:
-      $ref: ../swagger/paths/auth/sign-out.yaml
+      $ref: ../swagger/paths/auth/logout.yaml
   /api/users/current:
     get:
       $ref: ../swagger/paths/users/current.yaml

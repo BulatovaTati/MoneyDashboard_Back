@@ -29,7 +29,7 @@
     }
   ],
   "paths": {
-    "/api/auth/sign-up": {
+    "/api/auth/register": {
       "post": {
         "tags": [
           "Auth"
@@ -99,13 +99,16 @@
           "409": {
             "$ref": "#/components/responses/409"
           },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
           "500": {
             "$ref": "#/components/responses/500"
           }
         }
       }
     },
-    "/api/auth/sign-in": {
+    "/api/auth/login": {
       "post": {
         "tags": [
           "Auth"
@@ -212,13 +215,16 @@
           "404": {
             "$ref": "#/components/responses/404"
           },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
           "500": {
             "$ref": "#/components/responses/500"
           }
         }
       }
     },
-    "/api/auth/sign-out": {
+    "/api/auth/logout": {
       "post": {
         "tags": [
           "Auth"
@@ -234,6 +240,9 @@
           "401": {
             "$ref": "#/components/responses/401",
             "description": "User is not authenticated"
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
           },
           "500": {
             "$ref": "#/components/responses/500"
@@ -472,6 +481,9 @@
             "description": "Unauthorized - Authentication credentials were missing or incorrect",
             "$ref": "#/components/responses/401"
           },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
           "500": {
             "description": "Internal Server Error - Something went wrong on the server side",
             "$ref": "#/components/responses/500"
@@ -505,6 +517,9 @@
           },
           "401": {
             "$ref": "#/components/responses/401"
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
           },
           "500": {
             "$ref": "#/components/responses/500"
@@ -549,6 +564,9 @@
           },
           "401": {
             "$ref": "#/components/responses/401"
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
           },
           "500": {
             "$ref": "#/components/responses/500"
@@ -736,6 +754,9 @@
               }
             }
           },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
           "500": {
             "$ref": "#/components/responses/500"
           }
@@ -787,6 +808,9 @@
                 }
               }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
           },
           "500": {
             "$ref": "#/components/responses/500"
@@ -915,6 +939,9 @@
               }
             }
           },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
           "500": {
             "$ref": "#/components/responses/500"
           }
@@ -1018,6 +1045,9 @@
           },
           "401": {
             "$ref": "#/components/responses/401"
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
           },
           "500": {
             "$ref": "#/components/responses/500"
@@ -1456,6 +1486,30 @@
                       "example": "Email in use"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "429": {
+        "description": "Too Many Requests",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "status",
+                "message"
+              ],
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 429
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Too many requests, please try again later."
                 }
               }
             }

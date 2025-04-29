@@ -11,17 +11,17 @@ import { validateBody } from '../middlewares/validateBody.js';
 const AuthRouter = Router();
 
 AuthRouter.post(
-  '/sign-up',
+  '/register',
   validateBody(registerUserSchema),
   ctrlWrapper(registerUserController),
 );
 
 AuthRouter.post(
-  '/sign-in',
+  '/login',
   validateBody(loginUserSchema),
   ctrlWrapper(loginUserController),
 );
 
-AuthRouter.post('/sign-out', ctrlWrapper(logoutUserController));
+AuthRouter.post('/logout', ctrlWrapper(logoutUserController));
 
 export default AuthRouter;

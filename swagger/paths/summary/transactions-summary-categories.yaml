@@ -67,6 +67,8 @@ responses:
             message:
               type: string
               example: 'Missing required parameter: year'
+  '401':
+    $ref: ../../components/responses/401.yaml
   '404':
     description: No summary data found for the provided parameters
     content:
@@ -77,7 +79,7 @@ responses:
             message:
               type: string
               example: No data found
-  '401':
-    $ref: ../../components/responses/401.yaml
+  '429':
+    $ref: '../../components/responses/429.yaml'
   '500':
     $ref: ../../components/responses/500.yaml

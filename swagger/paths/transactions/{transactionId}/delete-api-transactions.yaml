@@ -28,5 +28,7 @@ responses:
             message:
               type: string
               example: 'Transaction not found or you do not have permission to delete it'
+  '429':
+    $ref: '../../../components/responses/429.yaml'
   '500':
     $ref: '../../../components/responses/500.yaml'
