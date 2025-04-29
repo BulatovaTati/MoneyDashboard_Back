@@ -1,4 +1,5 @@
 import { TransactionCollection } from '../db/models/transactions.js';
+import { UsersCollection } from '../db/models/user.js';
 import {
   createTransactionService,
   getAllTransactionsService,
@@ -73,5 +74,10 @@ export const deleteTransaction = async (req, res) => {
 
   await deleteTransactionService(id, userId, transaction);
 
-  res.status(204).send();
+  const user = await UsersCollection.findById(userId);
+
+  res.status(200).json({
+    id: transaction._id,
+    balanceAfter: user.balance,
+  });
 };

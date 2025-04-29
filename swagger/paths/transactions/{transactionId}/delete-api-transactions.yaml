@@ -2,7 +2,7 @@ tags:
   - Transactions
 summary: Delete a transaction by ID
 operationId: deleteTransaction
-description: Delete a specific transaction record by its ID for the authenticated user.
+description: Delete a specific transaction record by its ID for the authenticated user and return updated balance.
 security:
   - bearerAuth: []
 parameters:
@@ -14,8 +14,21 @@ parameters:
       type: string
       example: '680bd752eed571a5f72c7ea4'
 responses:
-  '204':
-    description: Successful deletion - No content is returned
+  '200':
+    description: Transaction successfully deleted, balance updated
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            id:
+              type: string
+              description: ID of the deleted transaction
+              example: '680bd752eed571a5f72c7ea4'
+            balanceAfter:
+              type: number
+              description: Updated user balance after transaction deletion
+              example: 1200
   '401':
     $ref: '../../../components/responses/401.yaml'
   '404':
