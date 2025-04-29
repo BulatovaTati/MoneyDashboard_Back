@@ -945,22 +945,6 @@
           "401": {
             "$ref": "#/components/responses/401"
           },
-          "404": {
-            "description": "No summary data found for the provided parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "No data found"
-                    }
-                  }
-                }
-              }
-            }
-          },
           "429": {
             "$ref": "#/components/responses/429"
           },
